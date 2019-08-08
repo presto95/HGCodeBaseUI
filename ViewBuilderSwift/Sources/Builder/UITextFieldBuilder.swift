@@ -8,11 +8,11 @@
 
 import UIKit
 
-internal final class UITextFieldBuilder: BaseBuilder {
+internal final class UITextFieldBuilder {
   
   private let textField: UITextField
   
-  override init() {
+  init() {
     textField = .init()
   }
   

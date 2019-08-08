@@ -8,11 +8,11 @@
 
 import UIKit
 
-internal final class UITextViewBuilder: BaseBuilder {
+internal final class UITextViewBuilder {
  
   private let textView: UITextView
   
-  override init() {
+  init() {
     textView = .init()
   }
   

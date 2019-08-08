@@ -8,11 +8,11 @@
 
 import UIKit
 
-internal final class UILabelBuilder: BaseBuilder {
+internal final class UILabelBuilder {
   
   private let label: UILabel
   
-  override init() {
+  init() {
     label = .init()
   }
   

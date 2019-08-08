@@ -8,20 +8,11 @@
 
 import UIKit
 
-internal final class UIImageViewBuilder: BaseBuilder {
-  
-  enum Animation {
-    
-    case each(duration: TimeInterval, repeatCount: Int)
-    
-    case duration(TimeInterval)
-    
-    case repeatCount(Int)
-  }
+internal final class UIImageViewBuilder {
   
   private let imageView: UIImageView
   
-  override init() {
+  init() {
     imageView = .init()
   }
   
@@ -54,7 +45,7 @@ internal final class UIImageViewBuilder: BaseBuilder {
   }
   
   @discardableResult
-  func animation(_ animation: Animation) -> Self {
+  func animation(_ animation: ImageViewAnimation) -> Self {
     switch animation {
     case let .each(duration, repeatCount):
       imageView.animationDuration = duration

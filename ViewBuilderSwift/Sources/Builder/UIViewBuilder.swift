@@ -10,11 +10,11 @@ import UIKit
 
 import SnapKit
 
-internal final class UIViewBuilder: BaseBuilder {
+internal final class UIViewBuilder {
   
   private let view: UIView
   
-  override init() {
+  init() {
     view = .init()
   }
   

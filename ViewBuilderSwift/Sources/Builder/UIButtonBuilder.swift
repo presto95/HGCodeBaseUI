@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal final class UIButtonBuilder: BaseBuilder {
+internal final class UIButtonBuilder {
   
   private let button: UIButton
   

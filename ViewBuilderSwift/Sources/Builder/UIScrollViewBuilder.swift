@@ -8,11 +8,11 @@
 
 import UIKit
 
-internal final class UIScrollViewBuilder: BaseBuilder {
+internal final class UIScrollViewBuilder {
   
   private let scrollView: UIScrollView
   
-  override init() {
+  init() {
     scrollView = .init()
   }
   

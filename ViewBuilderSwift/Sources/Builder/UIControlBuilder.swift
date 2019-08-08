@@ -8,11 +8,11 @@
 
 import UIKit
 
-internal final class UIControlBuilder: BaseBuilder {
+internal final class UIControlBuilder {
   
   private let control: UIControl
   
-  override init() {
+  init() {
     control = .init()
   }
   

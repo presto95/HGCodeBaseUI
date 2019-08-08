@@ -10,7 +10,7 @@ import UIKit
 
 public enum ViewBuilder {
   
-  static func button(type: UIButton.ButtonType) -> UIButtonBuilder {
+  static func button(type: UIButton.ButtonType = .system) -> UIButtonBuilder {
     return .init(type: type)
   }
   
@@ -30,8 +30,8 @@ public enum ViewBuilder {
     return .init()
   }
   
-  static func tableView() -> UITableViewBuilder {
-    return .init()
+  static func tableView(style: UITableView.Style = .plain) -> UITableViewBuilder {
+    return .init(style: style)
   }
   
   static func textField() -> UITextFieldBuilder {
