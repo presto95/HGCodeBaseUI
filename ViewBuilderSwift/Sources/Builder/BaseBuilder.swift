@@ -1,5 +1,5 @@
 //
-//  UIView+Enum.swift
+//  BaseBuilder.swift
 //  ViewBuilderSwift
 //
 //  Created by Presto on 08/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+internal class BaseBuilder {
   
   enum Point<Dimension> where Dimension: DimensionProtocol {
     

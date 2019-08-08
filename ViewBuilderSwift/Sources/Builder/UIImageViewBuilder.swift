@@ -1,5 +1,5 @@
 //
-//  UIImageView+.swift
+//  UIImageViewBuilder.swift
 //  ViewBuilderSwift
 //
 //  Created by Presto on 08/08/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImageView {
+internal final class UIImageViewBuilder: BaseBuilder {
   
   enum Animation {
     
@@ -19,17 +19,23 @@ extension UIImageView {
     case repeatCount(Int)
   }
   
+  private let imageView: UIImageView
+  
+  override init() {
+    imageView = .init()
+  }
+  
   // MARK: - Accessing the Displayed Images
   
   @discardableResult
   func image(_ image: UIImage?) -> Self {
-    self.image = image
+    imageView.image = image
     return self
   }
   
   @discardableResult
   func highlightedImage(_ image: UIImage?) -> Self {
-    self.highlightedImage = image
+    imageView.highlightedImage = image
     return self
   }
   
@@ -37,13 +43,13 @@ extension UIImageView {
   
   @discardableResult
   func animationImages(_ images: [UIImage]?) -> Self {
-    self.animationImages = images
+    imageView.animationImages = images
     return self
   }
   
   @discardableResult
   func highlightedAnimationImages(_ images: [UIImage]?) -> Self {
-    self.highlightedAnimationImages = images
+    imageView.highlightedAnimationImages = images
     return self
   }
   
@@ -51,12 +57,12 @@ extension UIImageView {
   func animation(_ animation: Animation) -> Self {
     switch animation {
     case let .each(duration, repeatCount):
-      self.animationDuration = duration
-      self.animationRepeatCount = repeatCount
+      imageView.animationDuration = duration
+      imageView.animationRepeatCount = repeatCount
     case let .duration(duration):
-      self.animationDuration = duration
+      imageView.animationDuration = duration
     case let .repeatCount(repeatCount):
-      self.animationRepeatCount = repeatCount
+      imageView.animationRepeatCount = repeatCount
     }
     return self
   }
@@ -65,7 +71,13 @@ extension UIImageView {
   
   @discardableResult
   func isHighlighted(_ flag: Bool) -> Self {
-    self.isHighlighted = flag
+    imageView.isHighlighted = flag
     return self
+  }
+  
+  // MARK: - Build
+  
+  func build() -> UIImageView {
+    return imageView
   }
 }
