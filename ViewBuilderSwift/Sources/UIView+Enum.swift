@@ -10,27 +10,27 @@ import UIKit
 
 extension UIView {
   
-  enum Point<T> where T: DimensionProtocol {
+  enum Point<Dimension> where Dimension: DimensionProtocol {
     
-    case each(x: T, y: T)
+    case each(x: Dimension, y: Dimension)
     
-    case all(T)
+    case all(Dimension)
   }
   
-  enum Size<T> where T: DimensionProtocol {
+  enum Size<Dimension> where Dimension: DimensionProtocol {
     
-    case each(width: T, height: T)
+    case each(width: Dimension, height: Dimension)
     
-    case all(T)
+    case all(Dimension)
   }
   
-  enum Rectangle<T> where T: DimensionProtocol {
+  enum Rectangle<Dimension> where Dimension: DimensionProtocol {
     
-    case each(x: T, y: T, width: T, height: T)
+    case each(x: Dimension, y: Dimension, width: Dimension, height: Dimension)
     
-    case grouped(origin: Point<T>, size: Size<T>)
+    case grouped(origin: Point<Dimension>, size: Size<Dimension>)
     
-    case all(T)
+    case all(Dimension)
   }
   
   enum Transform {
