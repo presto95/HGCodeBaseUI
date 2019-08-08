@@ -15,6 +15,8 @@ extension UIView {
     case each(x: Dimension, y: Dimension)
     
     case all(Dimension)
+    
+    case zero
   }
   
   enum Size<Dimension> where Dimension: DimensionProtocol {
@@ -22,6 +24,8 @@ extension UIView {
     case each(width: Dimension, height: Dimension)
     
     case all(Dimension)
+    
+    case zero
   }
   
   enum Rectangle<Dimension> where Dimension: DimensionProtocol {
@@ -31,6 +35,8 @@ extension UIView {
     case grouped(origin: Point<Dimension>, size: Size<Dimension>)
     
     case all(Dimension)
+    
+    case zero
   }
   
   enum Transform {
@@ -70,5 +76,21 @@ extension UIView {
     case all(CGFloat)
     
     case zero
+  }
+  
+  enum Shadow<Dimension> where Dimension: DimensionProtocol {
+    
+    case each(color: UIColor?, offset: Point<Dimension>)
+    
+    case color(UIColor?)
+    
+    case offset(Point<Dimension>)
+  }
+  
+  enum Text {
+    
+    case plain(String?)
+    
+    case attributed(String, attributes: [NSAttributedString.Key: Any])
   }
 }

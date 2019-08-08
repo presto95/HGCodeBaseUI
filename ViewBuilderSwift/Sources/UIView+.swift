@@ -101,15 +101,27 @@ extension UIView {
         self.frame = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.frame = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.frame = .init(origin: .init(x: value, y: value),
                            size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.frame = .init(origin: .init(x: originValue, y: originValue),
                            size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.frame = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.frame = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.frame = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.frame = .zero
       }
     case let .all(value):
       self.frame = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.frame = .zero
     }
     return self
   }
@@ -125,19 +137,30 @@ extension UIView {
         self.frame = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.frame = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.frame = .init(origin: .init(x: value, y: value),
                            size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.frame = .init(origin: .init(x: originValue, y: originValue),
                            size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.frame = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.frame = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.frame = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.frame = .zero
       }
     case let .all(value):
       self.frame = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.frame = .zero
     }
     return self
   }
-  
   
   @discardableResult
   func frame(_ rectangle: Rectangle<CGFloat>) -> Self {
@@ -150,15 +173,27 @@ extension UIView {
         self.frame = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.frame = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.frame = .init(origin: .init(x: value, y: value),
                            size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.frame = .init(origin: .init(x: originValue, y: originValue),
                            size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.frame = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.frame = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.frame = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.frame = .zero
       }
     case let .all(value):
       self.frame = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.frame = .zero
     }
     return self
   }
@@ -174,15 +209,27 @@ extension UIView {
         self.bounds = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.bounds = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.bounds = .init(origin: .init(x: value, y: value),
-                            size: .init(width: width, height: height))
+                           size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.bounds = .init(origin: .init(x: originValue, y: originValue),
-                            size: .init(width: sizeValue, height: sizeValue))
+                           size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.bounds = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.bounds = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.bounds = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.bounds = .zero
       }
     case let .all(value):
       self.bounds = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.bounds = .zero
     }
     return self
   }
@@ -198,15 +245,27 @@ extension UIView {
         self.bounds = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.bounds = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.bounds = .init(origin: .init(x: value, y: value),
                             size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.bounds = .init(origin: .init(x: originValue, y: originValue),
                             size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.bounds = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.bounds = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.bounds = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.bounds = .zero
       }
     case let .all(value):
       self.bounds = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.bounds = .zero
     }
     return self
   }
@@ -222,15 +281,27 @@ extension UIView {
         self.bounds = .init(x: x, y: y, width: width, height: height)
       case let (.each(x, y), .all(value)):
         self.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
+      case let (.each(x, y), .zero):
+        self.bounds = .init(origin: .init(x: x, y: y), size: .zero)
       case let (.all(value), .each(width, height)):
         self.bounds = .init(origin: .init(x: value, y: value),
                             size: .init(width: width, height: height))
       case let (.all(originValue), .all(sizeValue)):
         self.bounds = .init(origin: .init(x: originValue, y: originValue),
                             size: .init(width: sizeValue, height: sizeValue))
+      case let (.all(value), .zero):
+        self.bounds = .init(origin: .init(x: value, y: value), size: .zero)
+      case let (.zero, .each(width, height)):
+        self.bounds = .init(origin: .zero, size: .init(width: width, height: height))
+      case let (.zero, .all(value)):
+        self.bounds = .init(origin: .zero, size: .init(width: value, height: value))
+      case (.zero, .zero):
+        self.bounds = .zero
       }
     case let .all(value):
       self.bounds = .init(x: value, y: value, width: value, height: value)
+    case .zero:
+      self.bounds = .zero
     }
     return self
   }
@@ -242,6 +313,8 @@ extension UIView {
       self.center = .init(x: x, y: y)
     case let .all(value):
       self.center = .init(x: value, y: value)
+    case .zero:
+      self.center = .zero
     }
     return self
   }
@@ -253,6 +326,8 @@ extension UIView {
       self.center = .init(x: x, y: y)
     case let .all(value):
       self.center = .init(x: value, y: value)
+    case .zero:
+      self.center = .zero
     }
     return self
   }
@@ -264,6 +339,8 @@ extension UIView {
       self.center = .init(x: x, y: y)
     case let .all(value):
       self.center = .init(x: value, y: value)
+    case .zero:
+      self.center = .zero
     }
     return self
   }
