@@ -10,11 +10,27 @@ import UIKit
 
 extension UIView {
   
+  enum Point<T> where T: DimensionProtocol {
+    
+    case each(x: T, y: T)
+    
+    case all(T)
+  }
+  
+  enum Size<T> where T: DimensionProtocol {
+    
+    case each(width: T, height: T)
+    
+    case all(T)
+  }
+  
   enum Rectangle<T> where T: DimensionProtocol {
     
     case each(x: T, y: T, width: T, height: T)
     
-    case grouped(origin: CGPoint, size: CGSize)
+    case grouped(origin: Point<T>, size: Size<T>)
+    
+    case all(T)
   }
   
   enum Transform {
@@ -47,10 +63,12 @@ extension UIView {
   
   enum EdgeInsets {
     
-    case each(top: Double, left: Double, bottom: Double, right: Double)
+    case each(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
     
-    case symmetric(horizontal: Double, vertical: Double)
+    case symmetric(horizontal: CGFloat, vertical: CGFloat)
     
-    case all(Double)
+    case all(CGFloat)
+    
+    case zero
   }
 }
