@@ -14,4 +14,3 @@ internal enum Shadow<Dimension> where Dimension: DimensionProtocol {
   
   case offset(Point<Dimension>)
 }
-

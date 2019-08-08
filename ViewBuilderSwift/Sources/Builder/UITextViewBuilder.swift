@@ -6,8 +6,6 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-import UIKit
-
 internal final class UITextViewBuilder {
  
   private let textView: UITextView

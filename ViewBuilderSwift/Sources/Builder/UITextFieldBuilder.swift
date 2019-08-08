@@ -6,8 +6,6 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-import UIKit
-
 internal final class UITextFieldBuilder {
   
   private let textField: UITextField

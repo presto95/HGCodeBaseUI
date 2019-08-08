@@ -14,4 +14,3 @@ internal enum ImageViewAnimation {
   
   case repeatCount(Int)
 }
-

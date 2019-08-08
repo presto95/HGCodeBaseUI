@@ -12,4 +12,3 @@ internal enum Text {
   
   case attributed(String, attributes: [NSAttributedString.Key: Any])
 }
-

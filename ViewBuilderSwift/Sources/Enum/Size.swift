@@ -14,4 +14,3 @@ internal enum Size<Dimension> where Dimension: DimensionProtocol {
   
   case zero
 }
-

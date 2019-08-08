@@ -12,4 +12,3 @@ internal enum RegisterView {
   
   case headerFooter(RegisterMethod)
 }
-

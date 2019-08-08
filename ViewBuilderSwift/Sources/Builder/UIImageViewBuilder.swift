@@ -6,8 +6,6 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-import UIKit
-
 internal final class UIImageViewBuilder {
   
   private let imageView: UIImageView

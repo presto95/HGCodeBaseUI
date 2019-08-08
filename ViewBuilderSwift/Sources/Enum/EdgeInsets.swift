@@ -16,4 +16,3 @@ internal enum EdgeInsets {
   
   case zero
 }
-
