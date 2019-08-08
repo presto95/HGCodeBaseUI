@@ -96,6 +96,18 @@ internal final class UITextViewBuilder {
                                       right: horizontal)
     case let .all(value):
       textView.textContainerInset = .init(top: value, left: value, bottom: value, right: value)
+    case let .top(value):
+      textView.textContainerInset = .init(top: value, left: 0, bottom: 0, right: 0)
+    case let .left(value):
+      textView.textContainerInset = .init(top: 0, left: value, bottom: 0, right: 0)
+    case let .bottom(value):
+      textView.textContainerInset = .init(top: 0, left: 0, bottom: value, right: 0)
+    case let .right(value):
+      textView.textContainerInset = .init(top: 0, left: 0, bottom: 0, right: value)
+    case let .horizontal(value):
+      textView.textContainerInset = .init(top: 0, left: value, bottom: 0, right: value)
+    case let .vertical(value):
+      textView.textContainerInset = .init(top: value, left: 0, bottom: value, right: 0)
     case .zero:
       textView.textContainerInset = .zero
     }

@@ -115,6 +115,18 @@ internal final class UIScrollViewBuilder {
                                       right: horizontal)
     case let .all(value):
       scrollView.contentInset = .init(top: value, left: value, bottom: value, right: value)
+    case let .top(value):
+      scrollView.contentInset = .init(top: value, left: 0, bottom: 0, right: 0)
+    case let .left(value):
+      scrollView.contentInset = .init(top: 0, left: value, bottom: 0, right: 0)
+    case let .bottom(value):
+      scrollView.contentInset = .init(top: 0, left: 0, bottom: value, right: 0)
+    case let .right(value):
+      scrollView.contentInset = .init(top: 0, left: 0, bottom: 0, right: value)
+    case let .horizontal(value):
+      scrollView.contentInset = .init(top: 0, left: value, bottom: 0, right: value)
+    case let .vertical(value):
+      scrollView.contentInset = .init(top: value, left: 0, bottom: value, right: 0)
     case .zero:
       scrollView.contentInset = .zero
     }
@@ -196,6 +208,18 @@ internal final class UIScrollViewBuilder {
                                                left: value,
                                                bottom: value,
                                                right: value)
+    case let .top(value):
+      scrollView.scrollIndicatorInsets = .init(top: value, left: 0, bottom: 0, right: 0)
+    case let .left(value):
+      scrollView.scrollIndicatorInsets = .init(top: 0, left: value, bottom: 0, right: 0)
+    case let .bottom(value):
+      scrollView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: value, right: 0)
+    case let .right(value):
+      scrollView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: 0, right: value)
+    case let .horizontal(value):
+      scrollView.scrollIndicatorInsets = .init(top: 0, left: value, bottom: 0, right: value)
+    case let .vertical(value):
+      scrollView.scrollIndicatorInsets = .init(top: value, left: 0, bottom: value, right: 0)
     case .zero:
       scrollView.scrollIndicatorInsets = .zero
     }

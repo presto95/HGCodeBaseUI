@@ -14,5 +14,17 @@ internal enum EdgeInsets {
   
   case all(CGFloat)
   
+  case top(CGFloat)
+  
+  case left(CGFloat)
+  
+  case bottom(CGFloat)
+  
+  case right(CGFloat)
+  
+  case horizontal(CGFloat)
+  
+  case vertical(CGFloat)
+  
   case zero
 }

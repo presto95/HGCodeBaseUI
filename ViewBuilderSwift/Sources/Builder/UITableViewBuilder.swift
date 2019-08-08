@@ -162,6 +162,18 @@ internal final class UITableViewBuilder {
                                          right: horizontal)
       case let .all(value):
         tableView.separatorInset = .init(top: value, left: value, bottom: value, right: value)
+      case let .top(value):
+        tableView.separatorInset = .init(top: value, left: 0, bottom: 0, right: 0)
+      case let .left(value):
+        tableView.separatorInset = .init(top: 0, left: value, bottom: 0, right: 0)
+      case let .bottom(value):
+        tableView.separatorInset = .init(top: 0, left: 0, bottom: value, right: 0)
+      case let .right(value):
+        tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: value)
+      case let .horizontal(value):
+        tableView.separatorInset = .init(top: 0, left: value, bottom: 0, right: value)
+      case let .vertical(value):
+        tableView.separatorInset = .init(top: value, left: 0, bottom: value, right: 0)
       case .zero:
         tableView.separatorInset = .zero
       }
@@ -183,6 +195,18 @@ internal final class UITableViewBuilder {
                                          right: horizontal)
       case let .all(value):
         tableView.separatorInset = .init(top: value, left: value, bottom: value, right: value)
+      case let .top(value):
+        tableView.separatorInset = .init(top: value, left: 0, bottom: 0, right: 0)
+      case let .left(value):
+        tableView.separatorInset = .init(top: 0, left: value, bottom: 0, right: 0)
+      case let .bottom(value):
+        tableView.separatorInset = .init(top: 0, left: 0, bottom: value, right: 0)
+      case let .right(value):
+        tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: value)
+      case let .horizontal(value):
+        tableView.separatorInset = .init(top: 0, left: value, bottom: 0, right: value)
+      case let .vertical(value):
+        tableView.separatorInset = .init(top: value, left: 0, bottom: value, right: 0)
       case .zero:
         tableView.separatorInset = .zero
       }
