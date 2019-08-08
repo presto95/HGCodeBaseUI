@@ -13,13 +13,13 @@ extension UILabel {
   // MARK: - Accessing the Text Attributes
   
   @discardableResult
-  func text(_ text: String?,
-            withAttributes attributes: [NSAttributedString.Key: Any]? = nil) -> Self {
-    if let attributes = attributes {
+  func text(_ text: Text) -> Self {
+    switch text {
+    case let .plain(text):
+      self.text = text
+    case let .attributed(text, attributes):
       let attributedString = NSAttributedString(string: text ?? "", attributes: attributes)
       self.attributedText = attributedString
-    } else {
-      self.text = text
     }
     return self
   }
@@ -100,38 +100,83 @@ extension UILabel {
     return self
   }
   
-  @discardableResult
-  func shadow(color: UIColor?, offset: Size<Int>) -> Self {
-    self.shadowColor = color
-    switch offset {
-    case let .all(value):
-      self.shadowOffset = .init(width: value, height: value)
-    case let .each(width, height):
-      self.shadowOffset = .init(width: width, height: height)
+  func shadow(_ shadow: Shadow<Int>) -> Self {
+    switch shadow {
+    case let .each(color, offset):
+      self.shadowColor = color
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
+    case let .color(color):
+      self.shadowColor = color
+    case let .offset(offset):
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
     }
     return self
   }
   
-  @discardableResult
-  func shadow(color: UIColor?, offset: Size<Double>) -> Self {
-    self.shadowColor = color
-    switch offset {
-    case let .all(value):
-      self.shadowOffset = .init(width: value, height: value)
-    case let .each(width, height):
-      self.shadowOffset = .init(width: width, height: height)
+  func shadow(_ shadow: Shadow<Double>) -> Self {
+    switch shadow {
+    case let .each(color, offset):
+      self.shadowColor = color
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
+    case let .color(color):
+      self.shadowColor = color
+    case let .offset(offset):
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
     }
     return self
   }
   
-  @discardableResult
-  func shadow(color: UIColor?, offset: Size<CGFloat>) -> Self {
-    self.shadowColor = color
-    switch offset {
-    case let .all(value):
-      self.shadowOffset = .init(width: value, height: value)
-    case let .each(width, height):
-      self.shadowOffset = .init(width: width, height: height)
+  func shadow(_ shadow: Shadow<CGFloat>) -> Self {
+    switch shadow {
+    case let .each(color, offset):
+      self.shadowColor = color
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
+    case let .color(color):
+      self.shadowColor = color
+    case let .offset(offset):
+      switch offset {
+      case let .all(value):
+        self.shadowOffset = .init(width: value, height: value)
+      case let .each(x, y):
+        self.shadowOffset = .init(width: x, height: y)
+      case .zero:
+        self.shadowOffset = .zero
+      }
     }
     return self
   }

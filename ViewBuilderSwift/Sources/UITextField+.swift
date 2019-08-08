@@ -13,7 +13,7 @@ extension UITextField {
   // MARK: - Validating and Handling Edits
   
   @discardableResult
-  func delegate<T>(_ delegate: T?) -> Self where T: UITextFieldDelegate {
+  func textFieldDelegate<T>(_ delegate: T?) -> Self where T: UITextFieldDelegate {
     self.delegate = delegate
     return self
   }
@@ -21,25 +21,25 @@ extension UITextField {
   // MARK: - Accessing the Text Attributes
   
   @discardableResult
-  func text(_ text: String?,
-            withAttributes attributes: [NSAttributedString.Key: Any]? = nil) -> Self {
-    if let attributes = attributes {
+  func text(_ text: Text) -> Self {
+    switch text {
+    case let .plain(text):
+      self.text = text
+    case let .attributed(text, attributes):
       let attributedString = NSAttributedString(string: text ?? "", attributes: attributes)
       self.attributedText = attributedString
-    } else {
-      self.text = text
     }
     return self
   }
   
   @discardableResult
-  func placeholder(_ placeholder: String?,
-                   withAttributes attributes: [NSAttributedString.Key: Any]? = nil) -> Self {
-    if let attributes = attributes {
-      let attributedString = NSAttributedString(string: placeholder ?? "", attributes: attributes)
-      self.attributedPlaceholder = attributedString
-    } else {
+  func placeholder(_ placeholder: Text) -> Self {
+    switch placeholder {
+    case let .plain(placeholder):
       self.placeholder = placeholder
+    case let .attributed(text, attributes):
+      let attributedString = NSAttributedString(string: text ?? "", attributes: attributes)
+      self.attributedPlaceholder = attributedString
     }
     return self
   }

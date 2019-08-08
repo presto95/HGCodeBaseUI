@@ -13,14 +13,13 @@ extension UIButton {
   // MARK: - Configuring the Button Title
   
   @discardableResult
-  func title(_ title: String?,
-             for state: UIControl.State = .normal,
-             withAttributes attributes: [NSAttributedString.Key: Any]? = nil) -> Self {
-    if let attributes = attributes {
+  func title(_ title: Text, for state: UIControl.State = .normal) -> Self {
+    switch title {
+    case let .plain(title):
+      self.setTitle(title, for: state)
+    case let .attributed(title, attributes):
       let attributedString = NSAttributedString(string: title ?? "", attributes: attributes)
       self.setAttributedTitle(attributedString, for: state)
-    } else {
-      self.setTitle(title, for: state)
     }
     return self
   }
