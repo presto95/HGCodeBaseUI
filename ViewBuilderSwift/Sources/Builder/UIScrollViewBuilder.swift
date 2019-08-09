@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UIScrollView {
+public extension UIScrollView {
   
   @discardableResult
   func builder() -> UIScrollViewBuilder {
@@ -14,7 +14,7 @@ extension UIScrollView {
   }
 }
 
-internal final class UIScrollViewBuilder {
+public final class UIScrollViewBuilder {
   
   private let scrollView: UIScrollView
   

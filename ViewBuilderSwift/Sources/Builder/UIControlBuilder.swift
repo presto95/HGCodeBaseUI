@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UIControl {
+public extension UIControl {
   
   @discardableResult
   func builder() -> UIControlBuilder {
@@ -14,7 +14,7 @@ extension UIControl {
   }
 }
 
-internal final class UIControlBuilder {
+public final class UIControlBuilder {
   
   private let control: UIControl
   

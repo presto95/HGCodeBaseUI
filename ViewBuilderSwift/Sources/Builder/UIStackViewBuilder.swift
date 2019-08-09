@@ -6,14 +6,14 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UIStackView {
+public extension UIStackView {
   
   func builder() -> UIStackViewBuilder {
     return .init(stackView: self)
   }
 }
 
-internal final class UIStackViewBuilder {
+public final class UIStackViewBuilder {
   
   private let stackView: UIStackView
   

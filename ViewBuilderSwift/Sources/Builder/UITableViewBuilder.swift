@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UITableView {
+public extension UITableView {
   
   @discardableResult
   func builder() -> UITableViewBuilder {
@@ -14,7 +14,7 @@ extension UITableView {
   }
 }
 
-internal final class UITableViewBuilder {
+public final class UITableViewBuilder {
   
   private let tableView: UITableView
   

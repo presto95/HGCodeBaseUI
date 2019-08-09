@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UIButton {
+public extension UIButton {
   
   @discardableResult
   func builder() -> UIButtonBuilder {
@@ -14,7 +14,7 @@ extension UIButton {
   }
 }
 
-internal final class UIButtonBuilder {
+public final class UIButtonBuilder {
   
   private let button: UIButton
   

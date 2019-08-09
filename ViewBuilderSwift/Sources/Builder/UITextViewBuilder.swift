@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UITextView {
+public extension UITextView {
   
   @discardableResult
   func builder() -> UITextViewBuilder {
@@ -14,7 +14,7 @@ extension UITextView {
   }
 }
 
-internal final class UITextViewBuilder {
+public final class UITextViewBuilder {
  
   private let textView: UITextView
   

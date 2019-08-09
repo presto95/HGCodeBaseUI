@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UICollectionView {
+public extension UICollectionView {
   
   @discardableResult
   func builder() -> UICollectionViewBuilder {
@@ -14,7 +14,7 @@ extension UICollectionView {
   }
 }
 
-internal final class UICollectionViewBuilder {
+public final class UICollectionViewBuilder {
   
   private let collectionView: UICollectionView
   

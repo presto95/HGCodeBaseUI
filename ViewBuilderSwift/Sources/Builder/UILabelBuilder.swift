@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UILabel {
+public extension UILabel {
   
   @discardableResult
   func builder() -> UILabelBuilder {
@@ -14,7 +14,7 @@ extension UILabel {
   }
 }
 
-internal final class UILabelBuilder {
+public final class UILabelBuilder {
   
   private let label: UILabel
   

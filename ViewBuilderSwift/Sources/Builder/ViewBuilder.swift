@@ -8,6 +8,10 @@
 
 public enum ViewBuilder {
   
+  static func activityIndicatorView() -> UIActivityIndicatorViewBuilder {
+    return .init()
+  }
+  
   static func button(type: UIButton.ButtonType = .system) -> UIButtonBuilder {
     return .init(type: type)
   }

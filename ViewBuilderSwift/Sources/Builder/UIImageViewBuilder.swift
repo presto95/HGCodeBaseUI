@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UIImageView {
+public extension UIImageView {
   
   @discardableResult
   func builder() -> UIImageViewBuilder {
@@ -14,7 +14,7 @@ extension UIImageView {
   }
 }
 
-internal final class UIImageViewBuilder {
+public final class UIImageViewBuilder {
   
   private let imageView: UIImageView
   

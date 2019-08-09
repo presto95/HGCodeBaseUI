@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-extension UITextField {
+public extension UITextField {
   
   @discardableResult
   func builder() -> UITextFieldBuilder {
@@ -14,7 +14,7 @@ extension UITextField {
   }
 }
 
-internal final class UITextFieldBuilder {
+public final class UITextFieldBuilder {
   
   private let textField: UITextField
   

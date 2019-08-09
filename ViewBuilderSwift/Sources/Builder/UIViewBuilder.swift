@@ -8,7 +8,7 @@
 
 import SnapKit
 
-extension UIView {
+public extension UIView {
   
   @discardableResult
   func builder() -> UIViewBuilder {
@@ -16,7 +16,7 @@ extension UIView {
   }
 }
 
-internal final class UIViewBuilder {
+public final class UIViewBuilder {
   
   private let view: UIView
   
