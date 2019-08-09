@@ -24,11 +24,23 @@ public enum ViewBuilder {
     return .init()
   }
   
+  static func datePicker() -> UIDatePickerBuilder {
+    return .init()
+  }
+  
   static func imageView() -> UIImageViewBuilder {
     return .init()
   }
   
   static func label() -> UILabelBuilder {
+    return .init()
+  }
+  
+  static func pickerView() -> UIPickerViewBuilder {
+    return .init()
+  }
+  
+  static func progressView() -> UIProgressViewBuilder {
     return .init()
   }
   

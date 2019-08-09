@@ -100,10 +100,8 @@ public final class UICollectionViewBuilder {
   // MARK: - Changing the Layout
   
   @discardableResult
-  func collectionViewLayout(_ layout: UICollectionViewLayout,
-                            animated: Bool = false,
-                            completion: ((Bool) -> Void)? = nil) -> UICollectionViewBuilder {
-    collectionView.setCollectionViewLayout(layout, animated: animated, completion: completion)
+  func collectionViewLayout(_ layout: UICollectionViewLayout) -> UICollectionViewBuilder {
+    collectionView.collectionViewLayout = layout
     return self
   }
   

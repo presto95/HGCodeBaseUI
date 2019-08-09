@@ -28,8 +28,8 @@ public final class UIProgressViewBuilder {
   // MARK: - Managing the Progress Bar
   
   @discardableResult
-  func progress(_ progress: Float, animated: Bool = false) -> UIProgressViewBuilder {
-    progressView.setProgress(progress, animated: animated)
+  func progress(_ progress: Float) -> UIProgressViewBuilder {
+    progressView.progress = progress
     return self
   }
   
