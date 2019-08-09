@@ -72,9 +72,15 @@ final class SomeUI: UI {
 
 ## Builder
 
+You can set properties of UI components by using builder pattern.
+
+- Makes builder by using type methods of `ViewBuilder`
+- Makes builder on existing UI component by using `builder()`
+- At the end of the method chaining of any builder, you should specify `build()` to make UI component from the builder.
+
 ### Example
 
-- Making a label
+- Makes a label
 
 ```swift
 ViewBuilder.label()
@@ -84,7 +90,7 @@ ViewBuilder.label()
   .build()
 ```
 
-- Making a button
+- Makes a button
 
 ```swift
 ViewBuilder.button()
@@ -93,7 +99,7 @@ ViewBuilder.button()
   .build()
 ```
 
-- Making a table view
+- Makes a table view
 
 ```swift
 ViewBuilder.tableView()
@@ -110,3 +116,10 @@ ViewBuilder.tableView()
   .build()
 ```
 
+- Uses builder pattern on existing UI component
+
+```swift
+let label = UILabel()
+label.builder()
+  .text(.plain("Hello World!"))
+```
