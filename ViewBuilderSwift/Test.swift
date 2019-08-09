@@ -9,9 +9,6 @@
 class Test {
   
   func test() {
-    ViewBuilder.tableView()
-      .height(.each(row: 30, sectionHeader: 30, sectionFooter: 30))
-      .estimatedHeight(.each(row: 30, sectionHeader: 30, sectionFooter: 30))
-      .register(.cell(.nib(.init(nibName: "", bundle: nil), reuseIdentifier: "")))
+    
   }
 }

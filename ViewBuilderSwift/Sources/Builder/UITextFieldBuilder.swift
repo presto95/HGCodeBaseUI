@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UITextField {
+  
+  @discardableResult
+  func builder() -> UITextFieldBuilder {
+    return .init(textField: self)
+  }
+}
+
 internal final class UITextFieldBuilder {
   
   private let textField: UITextField
   
   init() {
     textField = .init()
+  }
+  
+  init(textField: UITextField) {
+    self.textField = textField
   }
   
   // MARK: - Validating and Handling Edits

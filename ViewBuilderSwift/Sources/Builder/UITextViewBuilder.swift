@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UITextView {
+  
+  @discardableResult
+  func builder() -> UITextViewBuilder {
+    return .init(textView: self)
+  }
+}
+
 internal final class UITextViewBuilder {
  
   private let textView: UITextView
   
   init() {
     textView = .init()
+  }
+  
+  init(textView: UITextView) {
+    self.textView = textView
   }
   
   // MARK: - Responding to Text View Changes

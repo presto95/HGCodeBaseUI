@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UILabel {
+  
+  @discardableResult
+  func builder() -> UILabelBuilder {
+    return .init(label: self)
+  }
+}
+
 internal final class UILabelBuilder {
   
   private let label: UILabel
   
   init() {
     label = .init()
+  }
+  
+  init(label: UILabel) {
+    self.label = label
   }
   
   // MARK: - Accessing the Text Attributes

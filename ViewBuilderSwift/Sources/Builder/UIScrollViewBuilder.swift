@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UIScrollView {
+  
+  @discardableResult
+  func builder() -> UIScrollViewBuilder {
+    return .init(scrollView: self)
+  }
+}
+
 internal final class UIScrollViewBuilder {
   
   private let scrollView: UIScrollView
   
   init() {
     scrollView = .init()
+  }
+  
+  init(scrollView: UIScrollView) {
+    self.scrollView = scrollView
   }
   
   // MARK: - Responding to Scroll View Interactions

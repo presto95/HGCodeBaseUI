@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UIControl {
+  
+  @discardableResult
+  func builder() -> UIControlBuilder {
+    return .init(control: self)
+  }
+}
+
 internal final class UIControlBuilder {
   
   private let control: UIControl
   
   init() {
     control = .init()
+  }
+  
+  init(control: UIControl) {
+    self.control = control
   }
   
   // MARK: - Configuring the Control's Attributes

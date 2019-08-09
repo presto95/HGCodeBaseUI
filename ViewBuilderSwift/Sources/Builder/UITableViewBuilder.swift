@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UITableView {
+  
+  @discardableResult
+  func builder() -> UITableViewBuilder {
+    return .init(tableView: self)
+  }
+}
+
 internal final class UITableViewBuilder {
   
   private let tableView: UITableView
   
   init(style: UITableView.Style) {
     tableView = .init(frame: .zero, style: style)
+  }
+  
+  init(tableView: UITableView) {
+    self.tableView = tableView
   }
   
   // MARK: - Providing the Table's Data and Cells

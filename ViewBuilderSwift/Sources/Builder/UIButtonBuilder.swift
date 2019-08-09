@@ -6,12 +6,24 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UIButton {
+  
+  @discardableResult
+  func builder() -> UIButtonBuilder {
+    return .init(button: self)
+  }
+}
+
 internal final class UIButtonBuilder {
   
   private let button: UIButton
   
   init(type: UIButton.ButtonType) {
     button = .init(type: type)
+  }
+  
+  init(button: UIButton) {
+    self.button = button
   }
   
   // MARK: - Configuring the Button Title

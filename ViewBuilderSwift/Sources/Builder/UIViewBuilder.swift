@@ -8,12 +8,24 @@
 
 import SnapKit
 
+extension UIView {
+  
+  @discardableResult
+  func builder() -> UIViewBuilder {
+    return .init(view: self)
+  }
+}
+
 internal final class UIViewBuilder {
   
   private let view: UIView
   
   init() {
     view = .init()
+  }
+  
+  init(view: UIView) {
+    self.view = view
   }
   
   // MARK: - Configuring a View's Visual Appearance

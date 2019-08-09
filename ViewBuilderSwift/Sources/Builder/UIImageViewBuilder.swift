@@ -6,6 +6,14 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+extension UIImageView {
+  
+  @discardableResult
+  func builder() -> UIImageViewBuilder {
+    return .init(imageView: self)
+  }
+}
+
 internal final class UIImageViewBuilder {
   
   private let imageView: UIImageView
@@ -14,16 +22,20 @@ internal final class UIImageViewBuilder {
     imageView = .init()
   }
   
+  init(imageView: UIImageView) {
+    self.imageView = imageView
+  }
+  
   // MARK: - Accessing the Displayed Images
   
   @discardableResult
-  func image(_ image: UIImage?) -> Self {
+  func image(_ image: UIImage?) -> UIImageViewBuilder {
     imageView.image = image
     return self
   }
   
   @discardableResult
-  func highlightedImage(_ image: UIImage?) -> Self {
+  func highlightedImage(_ image: UIImage?) -> UIImageViewBuilder {
     imageView.highlightedImage = image
     return self
   }
@@ -31,19 +43,19 @@ internal final class UIImageViewBuilder {
   // MARK: - Animtaing a Sequence of Images
   
   @discardableResult
-  func animationImages(_ images: [UIImage]?) -> Self {
+  func animationImages(_ images: [UIImage]?) -> UIImageViewBuilder {
     imageView.animationImages = images
     return self
   }
   
   @discardableResult
-  func highlightedAnimationImages(_ images: [UIImage]?) -> Self {
+  func highlightedAnimationImages(_ images: [UIImage]?) -> UIImageViewBuilder {
     imageView.highlightedAnimationImages = images
     return self
   }
   
   @discardableResult
-  func animation(_ animation: ImageViewAnimation) -> Self {
+  func animation(_ animation: ImageViewAnimation) -> UIImageViewBuilder {
     switch animation {
     case let .each(duration, repeatCount):
       imageView.animationDuration = duration
@@ -59,7 +71,7 @@ internal final class UIImageViewBuilder {
   // MARK: - Configuring the Image View
   
   @discardableResult
-  func isHighlighted(_ flag: Bool) -> Self {
+  func isHighlighted(_ flag: Bool) -> UIImageViewBuilder {
     imageView.isHighlighted = flag
     return self
   }
