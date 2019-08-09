@@ -49,7 +49,7 @@ internal final class UITableViewBuilder {
   // MARK: - Recycling Table View Cells & Recycling Section Headers and Footers
   
   @discardableResult
-  func register(_ registerView: RegisterView) -> UITableViewBuilder {
+  func register(_ registerView: TableViewRegisterView) -> UITableViewBuilder {
     switch registerView {
     case let .cell(registerMethod):
       switch registerMethod {
