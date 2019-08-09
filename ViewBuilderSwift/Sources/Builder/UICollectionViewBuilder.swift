@@ -165,7 +165,6 @@ public final class UICollectionViewBuilder {
   
   // MARK: - Build
   
-  @discardableResult
   func build() -> UICollectionView {
     return collectionView
   }

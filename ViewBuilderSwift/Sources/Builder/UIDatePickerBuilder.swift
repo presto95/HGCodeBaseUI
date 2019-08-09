@@ -92,7 +92,6 @@ public final class UIDatePickerBuilder {
   
   // MARK: - Build
   
-  @discardableResult
   func build() -> UIDatePicker {
     return datePicker
   }

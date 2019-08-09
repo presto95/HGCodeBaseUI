@@ -90,7 +90,7 @@ public final class UIStackViewBuilder {
   }
   
   // MARK: - Build
-  @discardableResult
+  
   func build() -> UIStackView {
     return stackView
   }

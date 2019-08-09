@@ -49,7 +49,6 @@ public final class UIActivityIndicatorViewBuilder {
   
   // MARK: - Build
   
-  @discardableResult
   func build() -> UIActivityIndicatorView {
     return activityIndicatorView
   }

@@ -36,6 +36,10 @@ public enum ViewBuilder {
     return .init()
   }
   
+  static func pageControl() -> UIPageControlBuilder {
+    return .init()
+  }
+  
   static func pickerView() -> UIPickerViewBuilder {
     return .init()
   }

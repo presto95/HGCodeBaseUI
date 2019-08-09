@@ -46,7 +46,6 @@ public final class UIPickerViewBuilder {
   
   // MARK: - Build
   
-  @discardableResult
   func build() -> UIPickerView {
     return pickerView
   }
