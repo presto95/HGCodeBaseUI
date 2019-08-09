@@ -12,4 +12,3 @@ internal enum CollectionViewRegisterView {
   
   case supplementaryView(TableViewRegisterMethod, kind: String)
 }
-

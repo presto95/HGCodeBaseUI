@@ -134,7 +134,9 @@ internal final class UICollectionViewBuilder {
   }
   
   @discardableResult
-  func reorderingCadence(_ cadence: UICollectionView.ReorderingCadence) -> UICollectionViewBuilder {
+  func reorderingCadence(
+    _ cadence: UICollectionView.ReorderingCadence
+  ) -> UICollectionViewBuilder {
     collectionView.reorderingCadence = cadence
     return self
   }

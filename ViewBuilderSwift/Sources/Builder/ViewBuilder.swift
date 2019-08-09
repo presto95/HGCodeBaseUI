@@ -12,6 +12,10 @@ public enum ViewBuilder {
     return .init(type: type)
   }
   
+  static func collectionView() -> UICollectionViewBuilder {
+    return .init()
+  }
+  
   static func control() -> UIControlBuilder {
     return .init()
   }
@@ -26,6 +30,10 @@ public enum ViewBuilder {
   
   static func scrollView() -> UIScrollViewBuilder {
     return .init()
+  }
+  
+  static func stackView(arrangedSubviews: [UIView] = []) -> UIStackViewBuilder {
+    return .init(arrangedSubviews: arrangedSubviews)
   }
   
   static func tableView(style: UITableView.Style = .plain) -> UITableViewBuilder {

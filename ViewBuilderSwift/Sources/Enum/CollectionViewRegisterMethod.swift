@@ -12,4 +12,3 @@ internal enum CollectionViewRegisterMethod {
   
   case `class`(AnyObject.Type, reuseIdentifier: String)
 }
-
