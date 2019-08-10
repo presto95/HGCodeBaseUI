@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum StepperImage {
   
   case each(background: (UIImage?, state: UIControl.State),
@@ -23,3 +25,5 @@ enum StepperImage {
   
   case increment(UIImage?, state: UIControl.State)
 }
+
+#endif
