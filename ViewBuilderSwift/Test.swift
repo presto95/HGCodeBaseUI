@@ -9,7 +9,12 @@
 class Test {
   
   func test() {
-    ViewBuilder.segmentedControl()
-      .contentOffset(.all(3), forSegmentAt: 3)
+    let asdf = UIActivityIndicatorView().builder
+      .constraints { $0.center.equalToSuperview() }
+      .color(.white)
+      .hidesWhenStopped(true)
+      .subview(of: .init())
+      .build()
+    
   }
 }
