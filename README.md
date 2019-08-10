@@ -1,3 +1,5 @@
+**🚧 Under Development 🚧**
+
 # ViewBuilderSwift
 
 **View Setting with View-Independent Object and Builder**
@@ -45,9 +47,9 @@ final class SomeUI: UI {
  
   unowned var owner: SomeViewController
   
-  var searchBar: UISearchBar!
+  var searchBar = UISearchBar()
   
-  var tableView: UITableView!
+  var tableView = UITableView()
   
   init(owner: SomeViewController) {
     self.owner = owner
@@ -56,13 +58,13 @@ final class SomeUI: UI {
     view.backgroundColor = .white
 
     // Configuring search bar
-    searchBar = ViewBuilder.searchBar()
-      .searchBarDelegate(owner)
+    searchBar.builder
+      .delegate(owner)
       .placeholder("Username")
-      .searchBarStyle(.minimal)
+      .style(.searchBar(.minimal))
     
     // Configuring table view
-    tableView = ViewBuilder.tableView()
+    tableView.builder
       .register(.cell(.nib(SomeCell.self, reuseIdentifier: "cell")))
       .keyboardDismissMode(.onDrag)
       .tableSectionView(.footer(someView))
@@ -74,37 +76,58 @@ final class SomeUI: UI {
 
 You can set properties of UI components by using builder pattern.
 
-- Makes builder by using type methods of `ViewBuilder`
-- Makes builder on existing UI component by using `builder()`
-- At the end of the method chaining of any builder, you should specify `build()` to make UI component from the builder.
+- Enters to a builder by using `builder` property of UI components.
+- At the end of the method chaining of any builder, you should specify `build()` method to retrieve the UI component from the builder.
 
 ### Example
 
 - Makes a label
 
 ```swift
-ViewBuilder.label()
+// Sets some properties to use `builder`.
+let label = UILabel()
+label.builder
   .text(.plain("Hello World!"))
-  .textColor(.orange)
+  .textColor(.blue)
   .font(.systemFont(ofSize: 15))
+
+// Assigns the result to some variable.
+// You should call `build` method to retrieve the result of builder.
+let label = UILabel().builder
+  .text(.plain("Hello World!"))
+  .textColor(.blue)
+  .font(.systemFont(ofSize: 15))
+  .subview(of: someView)
+  .constraints { $0.center.equalToSuperview() }
   .build()
+
+// You can also build without assigning the result to some variable.
+UILabel().builder
+  .text(.attributed("Hello World!", attributes: [.font: UIFont.systemFont(ofSize: 15)]))
+  .numberOfLines(0)
+  .textAlignment(.center)
+  .lineBreakMode(.byWordWrapping)
+  .shadow(.each(color: .black, offset: .all(4)))
+  // You can also set constraints by using the closure of `subview` family methods.
+  // It guarantees that constraints are set after the `self` is added as the subview.
+  .subview(of: someView) { $0.center.equalToSuperview() }
 ```
 
 - Makes a button
 
 ```swift
-ViewBuilder.button()
+let button = UIButton().builder
   .title(.plain("Hello World!"))
-  .contentEdgeInsets(.all(8))
+  .contentEdgeInsets(.symmetric(horizontal: 8, vertical: 4))
   .build()
 ```
 
 - Makes a table view
 
 ```swift
-ViewBuilder.tableView()
-  .tableViewDelegate(self)
-  .tableViewDataSource(self)
+let tableView = UITableView().builder
+  .delegate(self)
+  .dataSource(self)
   .register(.cell(.nib(someNib, reuseIdentifier: "cell")))
   .register(.headerFooter(.class(someClass, reuseIdentifier: "headerFooter")))
   .height(.row(80))
@@ -116,10 +139,8 @@ ViewBuilder.tableView()
   .build()
 ```
 
-- Uses builder pattern on existing UI component
+## Misc.
 
-```swift
-let label = UILabel()
-label.builder()
-  .text(.plain("Hello World!"))
-```
+### Dependent Library
+
+- SnapKit
