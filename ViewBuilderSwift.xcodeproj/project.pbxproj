@@ -24,7 +24,6 @@
 		32843EA696138C60AAA769984C30AB16 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA2A84D05AED3EEBCF94A76D774A8FF /* Point.swift */; };
 		35E007F78137FC6BD602CA79572A7166 /* TableViewRegisterMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0E9672EE44B7780029787E4FB84CA /* TableViewRegisterMethod.swift */; };
 		39921A163AF4CC8C237A9C64C5F5F3DA /* UIControl+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D24FC2CBC6582267001FDD5ACC10EF /* UIControl+Builder.swift */; };
-		3C263E7D1FFB77AB188EECEAA2238628 /* UISliderBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96A054C40B597BE17313352435B2D1 /* UISliderBuilder.swift */; };
 		4432E60AFA0D726BD5B02A1BAC17BD90 /* UIImageView+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66D7AB76396512E769ABA8B7BBFC063 /* UIImageView+Builder.swift */; };
 		464FB1CAADFB8DAA2D4C2817025D7BFF /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83B9EE444FB4061E9D946049901860A /* Selection.swift */; };
 		4E802005E152FC4698D1A0D3E5BC2C3F /* UITextField+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC8D6F449AE4A7A8AFB0EF467F43C3C /* UITextField+Builder.swift */; };
@@ -104,7 +103,6 @@
 		AA44D62F8A189707085304F0B5DC6769 /* ProgressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressType.swift; sourceTree = "<group>"; };
 		B83B9EE444FB4061E9D946049901860A /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		B933D4F0DC4E734D28CE773CD549BC5F /* UIPickerView+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPickerView+Builder.swift"; sourceTree = "<group>"; };
-		BB96A054C40B597BE17313352435B2D1 /* UISliderBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderBuilder.swift; sourceTree = "<group>"; };
 		BBF0E9672EE44B7780029787E4FB84CA /* TableViewRegisterMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewRegisterMethod.swift; sourceTree = "<group>"; };
 		BC326C2940867445CABDCD1BC76C86D2 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		C05144A2909AE9592C713F8A0E77784D /* UIStackView+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Builder.swift"; sourceTree = "<group>"; };
@@ -258,13 +256,12 @@
 				8DB0E1A389A3BA6A80DC4025040E0D20 /* UIProgressView+Builder.swift */,
 				33A1EE86947EE6F36DF6774EDB474553 /* UIScrollView+Builder.swift */,
 				377531E5FDD428DBA5AB182B3C7B5AEB /* UISegmentedControl+Builder.swift */,
-				BB96A054C40B597BE17313352435B2D1 /* UISliderBuilder.swift */,
+				1959AB0A22FEA4500005F89E /* UISlider+Builder.swift */,
 				C05144A2909AE9592C713F8A0E77784D /* UIStackView+Builder.swift */,
 				CD5E1264BFDB22EC17DC610BAC6BFD55 /* UITableView+Builder.swift */,
 				3BC8D6F449AE4A7A8AFB0EF467F43C3C /* UITextField+Builder.swift */,
 				4CBC799A0BD3A14EB8EC568560B547F8 /* UITextView+Builder.swift */,
 				20ADAC1BAF72E472F425EFFD24184DBB /* UIView+Builder.swift */,
-				1959AB0A22FEA4500005F89E /* UISlider+Builder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -437,7 +434,6 @@
 				0E811CD1BA012E5FA2655C5EC72AD992 /* UIProgressView+Builder.swift in Sources */,
 				8AFEEDADB2E4E7995295D9D9A667458A /* UIScrollView+Builder.swift in Sources */,
 				AA1BC84114CC22E0B4CA85D28E2F13A2 /* UISegmentedControl+Builder.swift in Sources */,
-				3C263E7D1FFB77AB188EECEAA2238628 /* UISliderBuilder.swift in Sources */,
 				963F4E398DA0076103590B6F01D38B36 /* UIStackView+Builder.swift in Sources */,
 				1959AB0B22FEA4500005F89E /* UISlider+Builder.swift in Sources */,
 				CBE5629E8C01A82955768218F33FE633 /* UITableView+Builder.swift in Sources */,

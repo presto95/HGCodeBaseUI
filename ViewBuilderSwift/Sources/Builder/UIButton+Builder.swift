@@ -76,6 +76,12 @@ extension Builder where Base: UIButton {
     return self
   }
   
+  @discardableResult
+  func tintColor(_ color: UIColor!) -> Builder {
+    base.tintColor = color
+    return self
+  }
+  
   // MARK: - Configuring Edge Insets
   
   @discardableResult

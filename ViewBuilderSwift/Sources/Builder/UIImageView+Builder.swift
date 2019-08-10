@@ -55,8 +55,20 @@ extension Builder where Base: UIImageView {
   // MARK: - Configuring the Image View
   
   @discardableResult
+  func isUserInteractionEnabled(_ flag: Bool) -> Builder {
+    base.isUserInteractionEnabled = flag
+    return self
+  }
+  
+  @discardableResult
   func isHighlighted(_ flag: Bool) -> Builder {
     base.isHighlighted = flag
+    return self
+  }
+  
+  @discardableResult
+  func tintColor(_ color: UIColor!) -> Builder {
+    base.tintColor = color
     return self
   }
   
