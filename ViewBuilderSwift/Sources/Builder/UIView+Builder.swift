@@ -363,26 +363,44 @@ extension Builder where Base: UIView {
   // MARK: - Managing the View Hierarchy
   
   @discardableResult
-  func subview(of parentView: UIView) -> Builder {
-    parentView.addSubview(base)
+  func subview(of view: UIView, constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+    view.addSubview(base)
+    if let maker = constraintMaker {
+      base.snp.makeConstraints(maker)
+    }
     return self
   }
   
   @discardableResult
-  func subview(of parentView: UIView, at index: Int) -> Builder {
-    parentView.insertSubview(base, at: index)
+  func subview(of view: UIView,
+               at index: Int,
+               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+    view.insertSubview(base, at: index)
+    if let maker = constraintMaker {
+      base.snp.makeConstraints(maker)
+    }
     return self
   }
   
   @discardableResult
-  func subview(of parentView: UIView, above aboveView: UIView) -> Builder {
-    parentView.insertSubview(base, aboveSubview: aboveView)
+  func subview(of view: UIView,
+               above aboveView: UIView,
+               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+    view.insertSubview(base, aboveSubview: aboveView)
+    if let maker = constraintMaker {
+      base.snp.makeConstraints(maker)
+    }
     return self
   }
   
   @discardableResult
-  func subview(of parentView: UIView, below belowView: UIView) -> Builder {
-    parentView.insertSubview(base, belowSubview: belowView)
+  func subview(of view: UIView,
+               below belowView: UIView,
+               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+    view.insertSubview(base, belowSubview: belowView)
+    if let maker = constraintMaker {
+      base.snp.makeConstraints(maker)
+    }
     return self
   }
   
