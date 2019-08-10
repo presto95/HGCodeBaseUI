@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Point<Dimension> where Dimension: DimensionProtocol {
+enum Point<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension)
   

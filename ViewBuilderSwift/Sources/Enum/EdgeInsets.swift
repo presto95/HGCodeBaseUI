@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum EdgeInsets {
+enum EdgeInsets {
   
   case each(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
   

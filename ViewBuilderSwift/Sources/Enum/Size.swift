@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Size<Dimension> where Dimension: DimensionProtocol {
+enum Size<Dimension> where Dimension: DimensionProtocol {
   
   case each(width: Dimension, height: Dimension)
   

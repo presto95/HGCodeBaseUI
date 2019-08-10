@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum SectionIndex {
+enum SectionIndex {
   
   case each(minimumDisplayRowCount: Int,
             color: UIColor?,

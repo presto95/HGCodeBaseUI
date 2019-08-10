@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Rectangle<Dimension> where Dimension: DimensionProtocol {
+enum Rectangle<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension, width: Dimension, height: Dimension)
   

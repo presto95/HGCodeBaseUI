@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum ImageViewAnimation {
+enum ImageViewAnimation {
   
   case each(duration: TimeInterval, repeatCount: Int)
   

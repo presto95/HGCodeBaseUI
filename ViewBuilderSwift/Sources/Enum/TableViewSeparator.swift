@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum TableViewSeparator {
+enum TableViewSeparator {
   
   case each(style: UITableViewCell.SeparatorStyle,
             color: UIColor?,

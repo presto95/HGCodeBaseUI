@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum CollectionViewRegisterMethod {
+enum CollectionViewRegisterMethod {
   
   case nib(UINib?, reuseIdentifier: String)
   

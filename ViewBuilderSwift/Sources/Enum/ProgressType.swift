@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum ProgressType<T> {
+enum ProgressType<T> {
   
   case each(progress: T, track: T)
   

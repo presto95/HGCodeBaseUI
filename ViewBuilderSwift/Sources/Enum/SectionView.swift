@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum SectionView {
+enum SectionView {
   
   case each(header: UIView?, footer: UIView?)
   

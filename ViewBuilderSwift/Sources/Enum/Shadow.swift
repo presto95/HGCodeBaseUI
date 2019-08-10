@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Shadow<Dimension> where Dimension: DimensionProtocol {
+enum Shadow<Dimension> where Dimension: DimensionProtocol {
   
   case each(color: UIColor?, offset: Point<Dimension>)
   

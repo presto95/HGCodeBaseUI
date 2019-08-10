@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Selection {
+enum Selection {
   
   case each(single: Bool, multiple: Bool)
   

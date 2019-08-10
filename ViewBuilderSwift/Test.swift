@@ -9,12 +9,6 @@
 class Test {
   
   func test() {
-    let asdf = UIActivityIndicatorView().builder
-      .constraints { $0.center.equalToSuperview() }
-      .color(.white)
-      .hidesWhenStopped(true)
-      .subview(of: .init())
-      .build()
     
   }
 }

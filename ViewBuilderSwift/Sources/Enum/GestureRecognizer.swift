@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum GestureRecognizer {
+enum GestureRecognizer {
   
   case tap(target: Any?, action: Selector?)
   

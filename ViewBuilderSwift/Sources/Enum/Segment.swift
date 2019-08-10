@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Segment {
+enum Segment {
   
   case image(UIImage?)
   

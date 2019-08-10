@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum SegmentSetting {
+enum SegmentSetting {
   
   case insert(Segment, index: Int)
   

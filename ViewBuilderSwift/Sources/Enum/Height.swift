@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-internal enum Height {
+enum Height {
   
   case each(row: CGFloat, sectionHeader: CGFloat, sectionFooter: CGFloat)
   
