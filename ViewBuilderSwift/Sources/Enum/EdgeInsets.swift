@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum EdgeInsets {
+public enum EdgeInsets {
   
   case each(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
   

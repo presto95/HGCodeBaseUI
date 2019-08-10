@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum DatePickerDate {
+public enum DatePickerDate {
   
   case each(Date, maximumDate: Date?, minimumDate: Date?)
   

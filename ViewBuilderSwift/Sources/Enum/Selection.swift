@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Selection {
+public enum Selection {
   
   case each(single: Bool, multiple: Bool)
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarImage {
+public enum SearchBarImage {
   
   case each(icon: (UIImage?, icon: UISearchBar.Icon, state: UIControl.State),
             background: (UIImage?, barPosition: UIBarPosition, barMetrics: UIBarMetrics),

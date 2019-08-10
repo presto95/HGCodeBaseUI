@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SliderImage {
+public enum SliderImage {
   
   case each(minimumValue: UIImage?,
             maximumValue: UIImage?,

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum ProgressType<T> {
+public enum ProgressType<T> {
   
   case each(progress: T, track: T)
   

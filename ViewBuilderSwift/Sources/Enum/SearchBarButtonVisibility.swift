@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarButtonVisibility {
+public enum SearchBarButtonVisibility {
   
   case each(bookmark: Bool, cancel: Bool, searchResults: Bool)
   

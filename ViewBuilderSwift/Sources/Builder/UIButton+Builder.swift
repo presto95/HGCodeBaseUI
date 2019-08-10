@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIButton {
+public extension Builder where Base: UIButton {
   
   // MARK: - Configuring the Button Title
   

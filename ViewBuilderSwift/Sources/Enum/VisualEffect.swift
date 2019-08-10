@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum VisualEffect {
+public enum VisualEffect {
   
   case blur(UIBlurEffect.Style)
   

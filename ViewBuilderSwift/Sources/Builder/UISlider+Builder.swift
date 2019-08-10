@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UISlider {
+public extension Builder where Base: UISlider {
   
   // MARK: - Accessing the Slider's Value & Accessing the Slider's Value Limits
   

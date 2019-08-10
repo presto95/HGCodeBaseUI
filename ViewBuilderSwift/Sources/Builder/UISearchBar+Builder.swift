@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UISearchBar {
+public extension Builder where Base: UISearchBar {
   
   // MARK: - Handling Search Bar Interactions
   

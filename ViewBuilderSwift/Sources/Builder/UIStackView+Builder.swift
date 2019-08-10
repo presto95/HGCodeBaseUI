@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIStackView {
+public extension Builder where Base: UIStackView {
   
   // MARK: - Managing Arranged Subviews
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIPageControl {
+public extension Builder where Base: UIPageControl {
  
   // MARK: - Managing the Page Navigation
   

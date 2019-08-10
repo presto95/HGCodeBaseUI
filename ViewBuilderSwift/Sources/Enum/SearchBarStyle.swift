@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarStyle {
+public enum SearchBarStyle {
   
   case each(bar: UIBarStyle, searchBar: UISearchBar.Style)
   

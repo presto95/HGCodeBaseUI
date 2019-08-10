@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UITextView {
+public extension Builder where Base: UITextView {
   
   // MARK: - Responding to Text View Changes
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIVisualEffectView {
+public extension Builder where Base: UIVisualEffectView {
   
   // MARK: - Retrieving View Information
   

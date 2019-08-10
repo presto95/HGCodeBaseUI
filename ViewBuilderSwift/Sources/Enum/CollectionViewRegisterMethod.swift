@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum CollectionViewRegisterMethod {
+public enum CollectionViewRegisterMethod {
   
   case nib(UINib?, reuseIdentifier: String)
   

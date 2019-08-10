@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UILabel {
+public extension Builder where Base: UILabel {
   
   // MARK: - Accessing the Text Attributes
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Text {
+public enum Text {
   
   case plain(String?)
   

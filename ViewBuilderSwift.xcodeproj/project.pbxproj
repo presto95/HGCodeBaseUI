@@ -290,6 +290,7 @@
 				B933D4F0DC4E734D28CE773CD549BC5F /* UIPickerView+Builder.swift */,
 				8DB0E1A389A3BA6A80DC4025040E0D20 /* UIProgressView+Builder.swift */,
 				33A1EE86947EE6F36DF6774EDB474553 /* UIScrollView+Builder.swift */,
+				1959AB2222FEE8180005F89E /* UISearchBar+Builder.swift */,
 				377531E5FDD428DBA5AB182B3C7B5AEB /* UISegmentedControl+Builder.swift */,
 				1176D98454B9A5151769D9581F393DF7 /* UISlider+Builder.swift */,
 				C05144A2909AE9592C713F8A0E77784D /* UIStackView+Builder.swift */,
@@ -300,7 +301,6 @@
 				4CBC799A0BD3A14EB8EC568560B547F8 /* UITextView+Builder.swift */,
 				20ADAC1BAF72E472F425EFFD24184DBB /* UIView+Builder.swift */,
 				5D768EDC38771F87E1085E456A87CC5F /* UIVisualEffectView+Builder.swift */,
-				1959AB2222FEE8180005F89E /* UISearchBar+Builder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum GestureRecognizer {
+public enum GestureRecognizer {
   
   case tap(target: Any?, action: Selector?)
   

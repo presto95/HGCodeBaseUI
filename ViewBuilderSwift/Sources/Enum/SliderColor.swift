@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SliderColor {
+public enum SliderColor {
   
   case each(minimumTrack: UIColor?, maximumTrack: UIColor?, thumb: UIColor?)
   

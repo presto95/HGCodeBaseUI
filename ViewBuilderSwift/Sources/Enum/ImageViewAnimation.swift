@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum ImageViewAnimation {
+public enum ImageViewAnimation {
   
   case each(duration: TimeInterval, repeatCount: Int)
   

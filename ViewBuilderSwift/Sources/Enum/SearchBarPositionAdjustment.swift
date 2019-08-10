@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarPositionAdjustment {
+public enum SearchBarPositionAdjustment {
   
   case each(icon: (UIOffset, icon: UISearchBar.Icon),
             searchFieldBackground: UIOffset,

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Height {
+public enum Height {
   
   case each(row: CGFloat, sectionHeader: CGFloat, sectionFooter: CGFloat)
   

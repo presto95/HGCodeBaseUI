@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UICollectionView {
+public extension Builder where Base: UICollectionView {
   
   // MARK: - Providing the Collection View Data
   

@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-protocol DimensionProtocol { }
+public protocol DimensionProtocol { }
 
 extension Int: DimensionProtocol { }
 

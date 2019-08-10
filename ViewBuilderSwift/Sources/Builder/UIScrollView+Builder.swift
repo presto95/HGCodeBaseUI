@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIScrollView {
+public extension Builder where Base: UIScrollView {
   
   // MARK: - Responding to Scroll View Interactions
   

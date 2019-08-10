@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum TableViewRegisterMethod {
+public enum TableViewRegisterMethod {
   
   case nib(UINib?, reuseIdentifier: String)
   

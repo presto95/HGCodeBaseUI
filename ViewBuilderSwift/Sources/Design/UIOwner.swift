@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-protocol UIOwner { }
+public protocol UIOwner { }
 
 extension UIViewController: UIOwner { }
 

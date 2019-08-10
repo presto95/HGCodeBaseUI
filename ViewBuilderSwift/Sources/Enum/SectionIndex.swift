@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SectionIndex {
+public enum SectionIndex {
   
   case each(minimumDisplayRowCount: Int,
             color: UIColor?,

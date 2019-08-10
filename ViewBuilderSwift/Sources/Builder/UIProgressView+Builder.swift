@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIProgressView {
+public extension Builder where Base: UIProgressView {
   
   // MARK: - Managing the Progress Bar
   

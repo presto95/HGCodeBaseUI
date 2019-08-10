@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIStepper {
+public extension Builder where Base: UIStepper {
   
   // MARK: - Configuring the Stepper
   

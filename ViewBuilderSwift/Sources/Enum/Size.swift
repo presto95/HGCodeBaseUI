@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Size<Dimension> where Dimension: DimensionProtocol {
+public enum Size<Dimension> where Dimension: DimensionProtocol {
   
   case each(width: Dimension, height: Dimension)
   

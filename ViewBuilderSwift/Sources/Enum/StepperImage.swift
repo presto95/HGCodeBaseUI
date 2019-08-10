@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum StepperImage {
+public enum StepperImage {
   
   case each(background: (UIImage?, state: UIControl.State),
             decrement: (UIImage?, state: UIControl.State),

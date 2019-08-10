@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SectionView {
+public enum SectionView {
   
   case each(header: UIView?, footer: UIView?)
   

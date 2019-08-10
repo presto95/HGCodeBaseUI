@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIPickerView {
+public extension Builder where Base: UIPickerView {
   
   // MARK: - Providing the Picker Data
   

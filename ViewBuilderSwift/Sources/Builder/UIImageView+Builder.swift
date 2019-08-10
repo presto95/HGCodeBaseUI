@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIImageView {
+public extension Builder where Base: UIImageView {
   
   // MARK: - Accessing the Displayed Images
   

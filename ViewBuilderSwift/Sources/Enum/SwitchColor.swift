@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SwitchColor {
+public enum SwitchColor {
   
   case each(on: UIColor?, off: UIColor?, thumb: UIColor?)
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Transform {
+public enum Transform {
   
   case rotation(angle: CGFloat)
   

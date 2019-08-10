@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum TableViewRegisterView {
+public enum TableViewRegisterView {
   
   case cell(TableViewRegisterMethod)
   

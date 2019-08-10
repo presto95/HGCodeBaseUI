@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UITextField {
+public extension Builder where Base: UITextField {
   
   // MARK: - Validating and Handling Edits
   

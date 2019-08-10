@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIActivityIndicatorView {
+public extension Builder where Base: UIActivityIndicatorView {
   
   // MARK: - Managing an Activity Indicator
   

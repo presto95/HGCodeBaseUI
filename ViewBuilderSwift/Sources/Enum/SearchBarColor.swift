@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarColor {
+public enum SearchBarColor {
   
   case each(bar: UIColor?, searchBar: UIColor?)
   

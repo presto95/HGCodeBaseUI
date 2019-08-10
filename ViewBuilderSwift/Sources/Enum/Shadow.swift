@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Shadow<Dimension> where Dimension: DimensionProtocol {
+public enum Shadow<Dimension> where Dimension: DimensionProtocol {
   
   case each(color: UIColor?, offset: Point<Dimension>)
   

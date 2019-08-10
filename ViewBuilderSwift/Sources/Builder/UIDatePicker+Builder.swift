@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIDatePicker {
+public extension Builder where Base: UIDatePicker {
   
   // MARK: - Managing the Date and Calendar
   

@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UISegmentedControl {
+public extension Builder where Base: UISegmentedControl {
   
   // MARK: - Managing Segment Content & Managing Segments
   

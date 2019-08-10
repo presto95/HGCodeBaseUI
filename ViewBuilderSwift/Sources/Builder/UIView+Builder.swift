@@ -10,7 +10,7 @@
 
 import SnapKit
 
-extension Builder where Base: UIView {
+public extension Builder where Base: UIView {
   
   // MARK: - Configuring a View's Visual Appearance
   

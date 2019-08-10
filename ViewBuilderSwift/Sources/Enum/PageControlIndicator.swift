@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum PageControlIndicator {
+public enum PageControlIndicator {
   
   case each(page: UIColor?, currentPage: UIColor?)
   

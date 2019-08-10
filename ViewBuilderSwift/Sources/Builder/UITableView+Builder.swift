@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UITableView {
+public extension Builder where Base: UITableView {
   
   // MARK: - Providing the Table's Data and Cells
   

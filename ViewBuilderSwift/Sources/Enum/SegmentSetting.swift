@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SegmentSetting {
+public enum SegmentSetting {
   
   case insert(Segment, index: Int)
   

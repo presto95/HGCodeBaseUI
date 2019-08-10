@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Rectangle<Dimension> where Dimension: DimensionProtocol {
+public enum Rectangle<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension, width: Dimension, height: Dimension)
   

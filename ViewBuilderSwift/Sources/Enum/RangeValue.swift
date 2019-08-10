@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum RangeValue<T> where T: Numeric {
+public enum RangeValue<T> where T: Numeric {
   
   case each(T, maximum: T, minimum: T)
   

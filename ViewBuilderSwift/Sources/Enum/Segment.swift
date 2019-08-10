@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Segment {
+public enum Segment {
   
   case image(UIImage?)
   

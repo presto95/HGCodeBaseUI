@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIControl {
+public extension Builder where Base: UIControl {
   
   // MARK: - Configuring the Control's Attributes
   

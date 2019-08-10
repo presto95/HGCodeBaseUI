@@ -6,7 +6,7 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
-protocol UI {
+public protocol UI {
   
   associatedtype Owner: UIOwner
   

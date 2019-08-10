@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UISwitch {
+public extension Builder where Base: UISwitch {
   
   // MARK: - Setting the Off/On State
   

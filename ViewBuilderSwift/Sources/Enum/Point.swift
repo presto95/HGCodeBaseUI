@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum Point<Dimension> where Dimension: DimensionProtocol {
+public enum Point<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension)
   

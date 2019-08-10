@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum SearchBarScope {
+public enum SearchBarScope {
   
   case each(buttonTitles: [String]?, selectedButtonIndex: Int, showsBar: Bool)
   

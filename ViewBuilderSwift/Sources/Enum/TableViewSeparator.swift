@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum TableViewSeparator {
+public enum TableViewSeparator {
   
   case each(style: UITableViewCell.SeparatorStyle,
             color: UIColor?,
