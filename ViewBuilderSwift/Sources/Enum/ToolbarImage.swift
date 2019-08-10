@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum ToolbarImage {
+public enum ToolbarImage {
   
   case each(background: (UIImage?, toolbarPosition: UIBarPosition, barMetrics: UIBarMetrics),
             shadow: (UIImage?, toolbarPosition: UIBarPosition))

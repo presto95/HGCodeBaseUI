@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-enum ToolbarColor {
+public enum ToolbarColor {
   
   case each(bar: UIColor?, item: UIColor!)
   

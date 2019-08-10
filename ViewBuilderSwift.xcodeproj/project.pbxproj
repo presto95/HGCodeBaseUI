@@ -23,6 +23,10 @@
 		1959AB3322FF08C90005F89E /* UIToolbar+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3222FF08C90005F89E /* UIToolbar+Builder.swift */; };
 		1959AB3522FF09250005F89E /* ToolbarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3422FF09250005F89E /* ToolbarColor.swift */; };
 		1959AB3722FF092C0005F89E /* ToolbarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3622FF092C0005F89E /* ToolbarImage.swift */; };
+		1959AB3922FF0CD10005F89E /* UITableViewCell+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3822FF0CD10005F89E /* UITableViewCell+Builder.swift */; };
+		1959AB3B22FF0D670005F89E /* TableViewCellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3A22FF0D670005F89E /* TableViewCellBackgroundView.swift */; };
+		1959AB3D22FF0DE00005F89E /* TableViewCellAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3C22FF0DE00005F89E /* TableViewCellAccessory.swift */; };
+		1959AB3F22FF0FFD0005F89E /* TableViewCellIndentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AB3E22FF0FFD0005F89E /* TableViewCellIndentation.swift */; };
 		1EEDC726146EC7063560DD8B250AFFE7 /* UILabel+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295706E9C132A8BA246E4ACD25EFB0BF /* UILabel+Builder.swift */; };
 		1F679ECEC1F50F0B645F9BB04C1A2B8C /* ProgressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44D62F8A189707085304F0B5DC6769 /* ProgressType.swift */; };
 		2F4352B5EDBFC5C624702D14DAB1A899 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE291E86F854C1343D8F381C5A7101 /* Rectangle.swift */; };
@@ -91,6 +95,10 @@
 		1959AB3222FF08C90005F89E /* UIToolbar+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIToolbar+Builder.swift"; sourceTree = "<group>"; };
 		1959AB3422FF09250005F89E /* ToolbarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarColor.swift; sourceTree = "<group>"; };
 		1959AB3622FF092C0005F89E /* ToolbarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarImage.swift; sourceTree = "<group>"; };
+		1959AB3822FF0CD10005F89E /* UITableViewCell+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Builder.swift"; sourceTree = "<group>"; };
+		1959AB3A22FF0D670005F89E /* TableViewCellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellBackgroundView.swift; sourceTree = "<group>"; };
+		1959AB3C22FF0DE00005F89E /* TableViewCellAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAccessory.swift; sourceTree = "<group>"; };
+		1959AB3E22FF0FFD0005F89E /* TableViewCellIndentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellIndentation.swift; sourceTree = "<group>"; };
 		20ADAC1BAF72E472F425EFFD24184DBB /* UIView+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Builder.swift"; sourceTree = "<group>"; };
 		20B68D32DED4E7123D49D635F6221F64 /* Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
 		241A495CA2E4CA8D3C6C105A5E0AF13E /* UICollectionView+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Builder.swift"; sourceTree = "<group>"; };
@@ -213,6 +221,9 @@
 				1959AB2E22FEED710005F89E /* SearchBarPositionAdjustment.swift */,
 				1959AB3422FF09250005F89E /* ToolbarColor.swift */,
 				1959AB3622FF092C0005F89E /* ToolbarImage.swift */,
+				1959AB3A22FF0D670005F89E /* TableViewCellBackgroundView.swift */,
+				1959AB3C22FF0DE00005F89E /* TableViewCellAccessory.swift */,
+				1959AB3E22FF0FFD0005F89E /* TableViewCellIndentation.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -310,6 +321,7 @@
 				1959AB3222FF08C90005F89E /* UIToolbar+Builder.swift */,
 				20ADAC1BAF72E472F425EFFD24184DBB /* UIView+Builder.swift */,
 				5D768EDC38771F87E1085E456A87CC5F /* UIVisualEffectView+Builder.swift */,
+				1959AB3822FF0CD10005F89E /* UITableViewCell+Builder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -482,12 +494,15 @@
 				FCEF7BA8474D634849E919E4F2C97455 /* UI.swift in Sources */,
 				D8C1CB7978D2C5AF14D8CDC485E86733 /* UIActivityIndicatorView+Builder.swift in Sources */,
 				7BE901EDCDE3A96A045706251AF39CFD /* UIButton+Builder.swift in Sources */,
+				1959AB3F22FF0FFD0005F89E /* TableViewCellIndentation.swift in Sources */,
 				E9ACCF325565DCA4C5633271FBFF3DF1 /* UICollectionView+Builder.swift in Sources */,
 				39921A163AF4CC8C237A9C64C5F5F3DA /* UIControl+Builder.swift in Sources */,
 				01FC9570C43FA8F12526AEFC94A5A15F /* UIDatePicker+Builder.swift in Sources */,
 				4432E60AFA0D726BD5B02A1BAC17BD90 /* UIImageView+Builder.swift in Sources */,
 				1EEDC726146EC7063560DD8B250AFFE7 /* UILabel+Builder.swift in Sources */,
 				6DB38CD9240973BC8ED5B714D0FE1366 /* UIOwner.swift in Sources */,
+				1959AB3922FF0CD10005F89E /* UITableViewCell+Builder.swift in Sources */,
+				1959AB3D22FF0DE00005F89E /* TableViewCellAccessory.swift in Sources */,
 				3065C5E8CC0FBD91E7EC4A86CE0363B5 /* UIPageControl+Builder.swift in Sources */,
 				1492A9A09AE1AED1EF0B1726B24528CC /* UIPickerView+Builder.swift in Sources */,
 				0E811CD1BA012E5FA2655C5EC72AD992 /* UIProgressView+Builder.swift in Sources */,
@@ -501,6 +516,7 @@
 				4E802005E152FC4698D1A0D3E5BC2C3F /* UITextField+Builder.swift in Sources */,
 				8128AAA2B668C6C5897CC5057CA18C1B /* UITextView+Builder.swift in Sources */,
 				96BC18AC6D870C4C73C75133E27C31DA /* UIView+Builder.swift in Sources */,
+				1959AB3B22FF0D670005F89E /* TableViewCellBackgroundView.swift in Sources */,
 				CD3E28988DB5FDA17785274DD1003DEB /* UIVisualEffectView+Builder.swift in Sources */,
 				980134E035B5C6C9EF9FA50698F407AA /* VisualEffect.swift in Sources */,
 				1959AB3522FF09250005F89E /* ToolbarColor.swift in Sources */,
