@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UITableViewCell {
+public extension Builder where Base: UITableViewCell {
   
   // MARK: - Accessing Views of the Cell Object
   
