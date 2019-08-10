@@ -43,7 +43,7 @@ public extension Builder where Base: UISlider {
   // MARK: - Changing the Slider's Appearance
   
   @discardableResult
-  func image(_ image: SliderImage) -> Builder {
+  func image(_ image: SliderBuilder.Image) -> Builder {
     switch image {
     case let .each(minimumValue, maximumValue, minimumTrack, maximumTrack, thumb):
       base.minimumValueImage = minimumValue
@@ -66,7 +66,7 @@ public extension Builder where Base: UISlider {
   }
   
   @discardableResult
-  func tintColor(_ color: SliderColor) -> Builder {
+  func tintColor(_ color: SliderBuilder.Color) -> Builder {
     switch color {
     case let .each(minimumTrack, maximumTrack, thumb):
       base.minimumTrackTintColor = minimumTrack

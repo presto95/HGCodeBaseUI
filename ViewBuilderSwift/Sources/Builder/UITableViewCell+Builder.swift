@@ -19,7 +19,7 @@ public extension Builder where Base: UITableViewCell {
   }
   
   @discardableResult
-  func backgroundView(_ view: TableViewCellBackgroundView) -> Builder {
+  func backgroundView(_ view: TableViewCellBuilder.BackgroundView) -> Builder {
     switch view {
     case let .each(normal, selected, multipleSelection):
       base.backgroundView = normal
@@ -38,7 +38,7 @@ public extension Builder where Base: UITableViewCell {
   // MARK: - Managing Accessory Views
   
   @discardableResult
-  func accessory(_ accessory: TableViewCellAccessory) -> Builder {
+  func accessory(_ accessory: TableViewCellBuilder.Accessory) -> Builder {
     switch accessory {
     case let .each(type, view, editingType, editingView):
       base.accessoryType = type
@@ -108,7 +108,7 @@ public extension Builder where Base: UITableViewCell {
   // MARK: - Managing Content Indentation
   
   @discardableResult
-  func indentation(_ indentation: TableViewCellIndentation) -> Builder {
+  func indentation(_ indentation: TableViewCellBuilder.Indentation) -> Builder {
     switch indentation {
     case let .each(level, width):
       base.indentationLevel = level

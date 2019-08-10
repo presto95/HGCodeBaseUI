@@ -39,7 +39,7 @@ public extension Builder where Base: UIImageView {
   }
   
   @discardableResult
-  func animation(_ animation: ImageViewAnimation) -> Builder {
+  func animation(_ animation: ImageViewBuilder.Animation) -> Builder {
     switch animation {
     case let .each(duration, repeatCount):
       base.animationDuration = duration

@@ -346,7 +346,7 @@ public extension Builder where Base: UIView {
   }
   
   @discardableResult
-  func transform(_ transform: Transform) -> Builder {
+  func transform(_ transform: ViewBuilder.Transform) -> Builder {
     switch transform {
     case let .rotation(angle):
       base.transform = .init(rotationAngle: angle)
@@ -415,7 +415,7 @@ public extension Builder where Base: UIView {
   // MARK: - Managing Gesture Recognizers
   
   @discardableResult
-  func gestureRecognizer(_ gestureRecognizer: GestureRecognizer) -> Builder {
+  func gestureRecognizer(_ gestureRecognizer: ViewBuilder.GestureRecognizer) -> Builder {
     switch gestureRecognizer {
     case let .tap(target, action):
       base.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))

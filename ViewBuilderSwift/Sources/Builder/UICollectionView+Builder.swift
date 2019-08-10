@@ -53,7 +53,7 @@ public extension Builder where Base: UICollectionView {
   // MARK: - Creating Collection View Cells
   
   @discardableResult
-  func register(_ registerView: CollectionViewRegisterView) -> Builder {
+  func register(_ registerView: CollectionViewBuilder.RegisterView) -> Builder {
     switch registerView {
     case let .cell(registerMethod):
       switch registerMethod {

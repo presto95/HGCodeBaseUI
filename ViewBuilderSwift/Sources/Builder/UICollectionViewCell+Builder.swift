@@ -13,7 +13,7 @@ public extension Builder where Base: UICollectionViewCell {
   // MARK: - Accessing the Cell's Views
   
   @discardableResult
-  func backgroundView(_ view: CollectionViewCellBackgroundView) -> Builder {
+  func backgroundView(_ view: CollectionViewCellBuilder.BackgroundView) -> Builder {
     switch view {
     case let .each(normal, selected):
       base.backgroundView = normal

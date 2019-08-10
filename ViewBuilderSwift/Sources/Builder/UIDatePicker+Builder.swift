@@ -41,7 +41,7 @@ public extension Builder where Base: UIDatePicker {
   // MARK: - Managing the Date and Calendar & Configuring Temporal Attributes
   
   @discardableResult
-  func date(_ date: DatePickerDate) -> Builder {
+  func date(_ date: DatePickerBuilder.DateType) -> Builder {
     switch date {
     case let .each(date, maximumDate, minimumDate):
       base.date = date

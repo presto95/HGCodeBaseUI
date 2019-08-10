@@ -41,7 +41,7 @@ extension Builder where Base: UIToolbar {
   }
   
   @discardableResult
-  func tintColor(_ color: ToolbarColor) -> Builder {
+  func tintColor(_ color: ToolbarBuilder.Color) -> Builder {
     switch color {
     case let .each(bar, item):
       base.barTintColor = bar
@@ -55,7 +55,7 @@ extension Builder where Base: UIToolbar {
   }
   
   @discardableResult
-  func image(_ image: ToolbarImage) -> Builder {
+  func image(_ image: ToolbarBuilder.Image) -> Builder {
     switch image {
     case let .each(background, shadow):
       base.setBackgroundImage(background.0,

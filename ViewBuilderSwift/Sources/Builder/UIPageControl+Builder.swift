@@ -33,7 +33,7 @@ public extension Builder where Base: UIPageControl {
   // MARK: - Updating the Page Display
   
   @discardableResult
-  func tintColor(_ pageControlIndicator: PageControlIndicator) -> Builder {
+  func tintColor(_ pageControlIndicator: PageControlBuilder.Indicator) -> Builder {
     switch pageControlIndicator {
     case let .each(page, currentPage):
       base.pageIndicatorTintColor = page

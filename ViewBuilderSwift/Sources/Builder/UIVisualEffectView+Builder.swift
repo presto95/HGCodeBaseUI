@@ -13,7 +13,7 @@ public extension Builder where Base: UIVisualEffectView {
   // MARK: - Retrieving View Information
   
   @discardableResult
-  func effect(_ effect: VisualEffect) -> Builder {
+  func effect(_ effect: VisualEffectViewBuilder.Effect) -> Builder {
     switch effect {
     case let .blur(style):
       let blurEffect = UIBlurEffect(style: style)

@@ -67,7 +67,7 @@ public extension Builder where Base: UIStepper {
   }
   
   @discardableResult
-  func image(_ image: StepperImage) -> Builder {
+  func image(_ image: StepperBuilder.Image) -> Builder {
     switch image {
     case let .each(background, decrement, divider, increment):
       base.setBackgroundImage(background.0, for: background.state)

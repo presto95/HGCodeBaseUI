@@ -41,7 +41,7 @@ public extension Builder where Base: UISearchBar {
   // MARK: - Display Attributes
   
   @discardableResult
-  func style(_ style: SearchBarStyle) -> Builder {
+  func style(_ style: SearchBarBuilder.Style) -> Builder {
     switch style {
     case let .each(bar, searchBar):
       base.barStyle = bar
@@ -55,7 +55,7 @@ public extension Builder where Base: UISearchBar {
   }
   
   @discardableResult
-  func tintColor(_ color: SearchBarColor) -> Builder {
+  func tintColor(_ color: SearchBarBuilder.Color) -> Builder {
     switch color {
     case let .each(bar, searchBar):
       base.barTintColor = bar
@@ -77,7 +77,7 @@ public extension Builder where Base: UISearchBar {
   // MARK: - Button Configuration
   
   @discardableResult
-  func showsButton(_ buttonVisibility: SearchBarButtonVisibility) -> Builder {
+  func showsButton(_ buttonVisibility: SearchBarBuilder.ButtonVisibility) -> Builder {
     switch buttonVisibility {
     case let .each(bookmark, cancel, searchResults):
       base.showsBookmarkButton = bookmark
@@ -102,7 +102,7 @@ public extension Builder where Base: UISearchBar {
   // MARK: - Scope Buttons
   
   @discardableResult
-  func scope(_ scope: SearchBarScope) -> Builder {
+  func scope(_ scope: SearchBarBuilder.ScopeBarButton) -> Builder {
     switch scope {
     case let .each(buttonTitles, selectedButtonIndex, showsBar):
       base.scopeButtonTitles = buttonTitles
@@ -121,7 +121,7 @@ public extension Builder where Base: UISearchBar {
   // MARK: - Customizing Appearance
   
   @discardableResult
-  func image(_ image: SearchBarImage) -> Builder {
+  func image(_ image: SearchBarBuilder.Image) -> Builder {
     switch image {
     case let .each(icon,
                    background,
@@ -156,7 +156,7 @@ public extension Builder where Base: UISearchBar {
   }
   
   @discardableResult
-  func positionAdjustment(_ positionAdjustment: SearchBarPositionAdjustment) -> Builder {
+  func positionAdjustment(_ positionAdjustment: SearchBarBuilder.PositionAdjustment) -> Builder {
     switch positionAdjustment {
     case let .each(icon, searchFieldBackground, searchText):
       base.setPositionAdjustment(icon.0, for: icon.icon)

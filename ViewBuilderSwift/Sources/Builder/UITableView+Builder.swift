@@ -31,7 +31,7 @@ public extension Builder where Base: UITableView {
   // MARK: - Recycling Table View Cells & Recycling Section Headers and Footers
   
   @discardableResult
-  func register(_ registerView: TableViewRegisterView) -> Builder {
+  func register(_ registerView: TableViewBuilder.RegisterView) -> Builder {
     switch registerView {
     case let .cell(registerMethod):
       switch registerMethod {
@@ -62,7 +62,7 @@ public extension Builder where Base: UITableView {
   // MARK: - Configuring the Table's Appearance
   
   @discardableResult
-  func tableSectionView(_ sectionView: SectionView) -> Builder {
+  func tableSectionView(_ sectionView: TableViewBuilder.SectionView) -> Builder {
     switch sectionView {
     case let .each(header, footer):
       base.tableHeaderView = header
@@ -98,7 +98,7 @@ public extension Builder where Base: UITableView {
   // MARK: - Configuring Cell Height and Layout & Configuring Header and Footer Heights
   
   @discardableResult
-  func height(_ height: Height) -> Builder {
+  func height(_ height: TableViewBuilder.Height) -> Builder {
     switch height {
     case let .each(row, header, footer):
       base.rowHeight = row
@@ -118,7 +118,7 @@ public extension Builder where Base: UITableView {
   }
   
   @discardableResult
-  func estimatedHeight(_ height: Height) -> Builder {
+  func estimatedHeight(_ height: TableViewBuilder.Height) -> Builder {
     switch height {
     case let .each(row, header, footer):
       base.estimatedRowHeight = row
@@ -140,7 +140,7 @@ public extension Builder where Base: UITableView {
   // MARK: - Customizing the Separator Appearance
   
   @discardableResult
-  func separator(_ separator: TableViewSeparator) -> Builder {
+  func separator(_ separator: TableViewBuilder.Separator) -> Builder {
     switch separator {
     case let .each(style, color, effect, inset, insetReference):
       base.separatorStyle = style
@@ -243,7 +243,7 @@ public extension Builder where Base: UITableView {
   // MARK: - Configuring the Table Index
   
   @discardableResult
-  func sectionIndex(_ sectionIndex: SectionIndex) -> Builder {
+  func sectionIndex(_ sectionIndex: TableViewBuilder.SectionIndex) -> Builder {
     switch sectionIndex {
     case let .each(minimumDisplayRowCount, color, backgroundColor, trackingBackgroundColor):
       base.sectionIndexMinimumDisplayRowCount = minimumDisplayRowCount

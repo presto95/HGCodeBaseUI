@@ -13,7 +13,8 @@ public extension Builder where Base: UISegmentedControl {
   // MARK: - Managing Segment Content & Managing Segments
   
   @discardableResult
-  func segment(_ segmentSetting: SegmentSetting, animated: Bool = false) -> Builder {
+  func segment(_ segmentSetting: SegmentedControlBuilder.Setting,
+               animated: Bool = false) -> Builder {
     switch segmentSetting {
     case let .insert(segment, index):
       switch segment {

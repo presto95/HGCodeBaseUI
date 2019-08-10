@@ -33,8 +33,8 @@ public extension Builder where Base: UIProgressView {
   }
   
   @discardableResult
-  func tintColor(_ progressType: ProgressType<UIColor?>) -> Builder {
-    switch progressType {
+  func tintColor(_ progress: ProgressViewBuilder.Progress<UIColor?>) -> Builder {
+    switch progress {
     case let .each(progress, track):
       base.progressTintColor = progress
       base.trackTintColor = track
@@ -47,8 +47,8 @@ public extension Builder where Base: UIProgressView {
   }
   
   @discardableResult
-  func image(_ progressType: ProgressType<UIImage?>) -> Builder {
-    switch progressType {
+  func image(_ progress: ProgressViewBuilder.Progress<UIImage?>) -> Builder {
+    switch progress {
     case let .each(progress, track):
       base.progressImage = progress
       base.trackImage = track

@@ -21,7 +21,7 @@ public extension Builder where Base: UISwitch {
   // MARK: - Customizing the Appearance of the Switch
   
   @discardableResult
-  func tintColor(_ color: SwitchColor) -> Builder {
+  func tintColor(_ color: SwitchBuilder.Color) -> Builder {
     switch color {
     case let .each(on, off, thumb):
       base.onTintColor = on

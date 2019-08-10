@@ -100,7 +100,7 @@ public extension Builder where Base: UILabel {
     return self
   }
   
-  func shadow(_ shadow: Shadow<Int>) -> Builder {
+  func shadow(_ shadow: LabelBuilder.Shadow<Int>) -> Builder {
     switch shadow {
     case let .each(color, offset):
       base.shadowColor = color
@@ -127,7 +127,7 @@ public extension Builder where Base: UILabel {
     return self
   }
   
-  func shadow(_ shadow: Shadow<Double>) -> Builder {
+  func shadow(_ shadow: LabelBuilder.Shadow<Double>) -> Builder {
     switch shadow {
     case let .each(color, offset):
       base.shadowColor = color
@@ -154,7 +154,7 @@ public extension Builder where Base: UILabel {
     return self
   }
   
-  func shadow(_ shadow: Shadow<CGFloat>) -> Builder {
+  func shadow(_ shadow: LabelBuilder.Shadow<CGFloat>) -> Builder {
     switch shadow {
     case let .each(color, offset):
       base.shadowColor = color
