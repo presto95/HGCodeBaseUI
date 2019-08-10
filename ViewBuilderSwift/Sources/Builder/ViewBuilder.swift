@@ -52,6 +52,10 @@ public enum ViewBuilder {
     return .init()
   }
   
+  static func segmentedControl() -> UISegmentedControlBuilder {
+    return .init()
+  }
+  
   static func stackView(arrangedSubviews: [UIView] = []) -> UIStackViewBuilder {
     return .init(arrangedSubviews: arrangedSubviews)
   }

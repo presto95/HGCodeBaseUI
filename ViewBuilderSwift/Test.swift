@@ -9,6 +9,7 @@
 class Test {
   
   func test() {
-    
+    ViewBuilder.segmentedControl()
+      .contentOffset(.all(3), forSegmentAt: 3)
   }
 }

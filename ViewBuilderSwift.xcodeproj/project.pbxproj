@@ -11,6 +11,9 @@
 		037567194643BFFCADF160F9861957DA /* SectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DA564BE4BE09799C8089EEC621256 /* SectionIndex.swift */; };
 		1959AAD122FD7EEA0005F89E /* UIPageControlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AAD022FD7EEA0005F89E /* UIPageControlBuilder.swift */; };
 		1959AAD322FD7FC40005F89E /* PageControlIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AAD222FD7FC40005F89E /* PageControlIndicator.swift */; };
+		1959AAD522FD80C70005F89E /* UISegmentedControlBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AAD422FD80C70005F89E /* UISegmentedControlBuilder.swift */; };
+		1959AAD722FD817A0005F89E /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AAD622FD817A0005F89E /* Segment.swift */; };
+		1959AADB22FE822A0005F89E /* SegmentSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1959AADA22FE822A0005F89E /* SegmentSetting.swift */; };
 		1F679ECEC1F50F0B645F9BB04C1A2B8C /* ProgressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44D62F8A189707085304F0B5DC6769 /* ProgressType.swift */; };
 		2F4352B5EDBFC5C624702D14DAB1A899 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE291E86F854C1343D8F381C5A7101 /* Rectangle.swift */; };
 		318E33A4971BCD3318E23026D6FF4642 /* Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B68D32DED4E7123D49D635F6221F64 /* Height.swift */; };
@@ -59,6 +62,9 @@
 		123848952188D3299341344C0BD6B10A /* UIViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewBuilder.swift; sourceTree = "<group>"; };
 		1959AAD022FD7EEA0005F89E /* UIPageControlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageControlBuilder.swift; sourceTree = "<group>"; };
 		1959AAD222FD7FC40005F89E /* PageControlIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlIndicator.swift; sourceTree = "<group>"; };
+		1959AAD422FD80C70005F89E /* UISegmentedControlBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlBuilder.swift; sourceTree = "<group>"; };
+		1959AAD622FD817A0005F89E /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		1959AADA22FE822A0005F89E /* SegmentSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentSetting.swift; sourceTree = "<group>"; };
 		20B68D32DED4E7123D49D635F6221F64 /* Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Height.swift; sourceTree = "<group>"; };
 		298F8E12CF3DB0660DC95D2F1EEF993C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		2C4143861ADABC0618BE65F083CA0C12 /* UITableViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewBuilder.swift; sourceTree = "<group>"; };
@@ -151,6 +157,8 @@
 				4B4355326D679174AD2E559905C13749 /* Text.swift */,
 				BC326C2940867445CABDCD1BC76C86D2 /* Transform.swift */,
 				1959AAD222FD7FC40005F89E /* PageControlIndicator.swift */,
+				1959AAD622FD817A0005F89E /* Segment.swift */,
+				1959AADA22FE822A0005F89E /* SegmentSetting.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 				47F726AC838E1D9FC611C091C0318F19 /* UIPickerViewBuilder.swift */,
 				48B386FF4C0FAE18C8B248015AFA52CE /* UIProgressViewBuilder.swift */,
 				3E95F232A8F2FD7D9241598725CA358C /* UIScrollViewBuilder.swift */,
+				1959AAD422FD80C70005F89E /* UISegmentedControlBuilder.swift */,
 				6E5995BC2F917305D823E836B5B69B9A /* UIStackViewBuilder.swift */,
 				2C4143861ADABC0618BE65F083CA0C12 /* UITableViewBuilder.swift */,
 				A23B2A9F8B396D990D12A77E5BE2AA7E /* UITextFieldBuilder.swift */,
@@ -392,14 +401,17 @@
 				9751B28961139D7B05F605699C02E8A3 /* TableViewRegisterView.swift in Sources */,
 				84D83D8761488749B15DE1D2A01ED78D /* TableViewSeparator.swift in Sources */,
 				A5AF95B604707707590462A19A96F760 /* Test.swift in Sources */,
+				1959AADB22FE822A0005F89E /* SegmentSetting.swift in Sources */,
 				6A3B63231A4E1C496701B7CCF9FC66C0 /* Text.swift in Sources */,
 				76207D3B0F2E8C71C9C0C6820AEBBBAD /* Transform.swift in Sources */,
 				FCEF7BA8474D634849E919E4F2C97455 /* UI.swift in Sources */,
 				6EA50F0EACE1D87BD84285B111F6131C /* UIActivityIndicatorViewBuilder.swift in Sources */,
 				E77ED0C61218C5797A97DB403106482A /* UIButtonBuilder.swift in Sources */,
+				1959AAD722FD817A0005F89E /* Segment.swift in Sources */,
 				B07293F26871F6849E239DA9A6C2CECB /* UICollectionViewBuilder.swift in Sources */,
 				4CA8A4C4F5FAA134CEB024DD2E11E1AB /* UIControlBuilder.swift in Sources */,
 				F00AE4DA95E3B9E4C31C4CF795635C2E /* UIDatePickerBuilder.swift in Sources */,
+				1959AAD522FD80C70005F89E /* UISegmentedControlBuilder.swift in Sources */,
 				F14D2CBCAE96A0C41E22339CB93FD502 /* UIImageViewBuilder.swift in Sources */,
 				A49C66BA206927BB53D023E3FA6A96C2 /* UILabelBuilder.swift in Sources */,
 				6DB38CD9240973BC8ED5B714D0FE1366 /* UIOwner.swift in Sources */,
