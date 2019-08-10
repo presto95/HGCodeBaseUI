@@ -13,14 +13,14 @@ extension Builder where Base: UISegmentedControl {
   // MARK: - Managing Segment Content & Managing Segments
   
   @discardableResult
-  func segment(_ segmentSetting: SegmentSetting) -> Builder {
+  func segment(_ segmentSetting: SegmentSetting, animated: Bool = false) -> Builder {
     switch segmentSetting {
     case let .insert(segment, index):
       switch segment {
       case let .image(image):
-        base.insertSegment(with: image, at: index, animated: false)
+        base.insertSegment(with: image, at: index, animated: animated)
       case let .title(title):
-        base.insertSegment(withTitle: title, at: index, animated: false)
+        base.insertSegment(withTitle: title, at: index, animated: animated)
       }
     case let .modify(segment, index):
       switch segment {

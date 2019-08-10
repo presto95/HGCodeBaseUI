@@ -13,8 +13,8 @@ extension Builder where Base: UISwitch {
   // MARK: - Setting the Off/On State
   
   @discardableResult
-  func isOn(_ flag: Bool) -> Builder {
-    base.setOn(flag, animated: false)
+  func isOn(_ flag: Bool, animated: Bool = false) -> Builder {
+    base.setOn(flag, animated: animated)
     return self
   }
   
