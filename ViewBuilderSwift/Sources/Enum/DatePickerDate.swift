@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum DatePickerDate {
   
   case each(Date, maximumDate: Date?, minimumDate: Date?)
@@ -18,3 +20,5 @@ enum DatePickerDate {
   
   case minimum(Date?)
 }
+
+#endif

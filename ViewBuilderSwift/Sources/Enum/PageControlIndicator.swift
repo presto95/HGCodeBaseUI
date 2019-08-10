@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum PageControlIndicator {
   
   case each(page: UIColor?, currentPage: UIColor?)
@@ -14,3 +16,5 @@ enum PageControlIndicator {
   
   case currentPage(UIColor?)
 }
+
+#endif

@@ -13,7 +13,7 @@ extension Builder where Base: UISlider {
   // MARK: - Accessing the Slider's Value & Accessing the Slider's Value Limits
   
   @discardableResult
-  func value(_ value: SliderValue) -> Builder {
+  func value(_ value: RangeValue<Float>) -> Builder {
     switch value {
     case let .each(value, maximum, minimum):
       base.value = value

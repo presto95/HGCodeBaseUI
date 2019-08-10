@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Selection {
   
   case each(single: Bool, multiple: Bool)
@@ -14,3 +16,5 @@ enum Selection {
   
   case multiple(Bool)
 }
+
+#endif

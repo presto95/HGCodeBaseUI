@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Rectangle<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension, width: Dimension, height: Dimension)
@@ -16,3 +18,5 @@ enum Rectangle<Dimension> where Dimension: DimensionProtocol {
   
   case zero
 }
+
+#endif

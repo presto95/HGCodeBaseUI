@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum GestureRecognizer {
   
   case tap(target: Any?, action: Selector?)
@@ -22,3 +24,5 @@ enum GestureRecognizer {
   
   case longPress(target: Any?, action: Selector?)
 }
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Shadow<Dimension> where Dimension: DimensionProtocol {
   
   case each(color: UIColor?, offset: Point<Dimension>)
@@ -14,3 +16,5 @@ enum Shadow<Dimension> where Dimension: DimensionProtocol {
   
   case offset(Point<Dimension>)
 }
+
+#endif

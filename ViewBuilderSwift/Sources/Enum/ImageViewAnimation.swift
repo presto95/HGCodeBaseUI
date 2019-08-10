@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum ImageViewAnimation {
   
   case each(duration: TimeInterval, repeatCount: Int)
@@ -14,3 +16,5 @@ enum ImageViewAnimation {
   
   case repeatCount(Int)
 }
+
+#endif

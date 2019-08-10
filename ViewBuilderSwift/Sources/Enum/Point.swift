@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Point<Dimension> where Dimension: DimensionProtocol {
   
   case each(x: Dimension, y: Dimension)
@@ -14,3 +16,5 @@ enum Point<Dimension> where Dimension: DimensionProtocol {
   
   case zero
 }
+
+#endif

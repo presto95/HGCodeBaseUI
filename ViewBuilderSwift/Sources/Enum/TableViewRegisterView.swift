@@ -6,9 +6,13 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum TableViewRegisterView {
   
   case cell(TableViewRegisterMethod)
   
   case headerFooter(TableViewRegisterMethod)
 }
+
+#endif

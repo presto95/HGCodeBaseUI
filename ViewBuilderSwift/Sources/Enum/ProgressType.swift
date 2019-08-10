@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum ProgressType<T> {
   
   case each(progress: T, track: T)
@@ -14,3 +16,5 @@ enum ProgressType<T> {
   
   case track(T)
 }
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum SectionView {
   
   case each(header: UIView?, footer: UIView?)
@@ -14,3 +16,5 @@ enum SectionView {
   
   case footer(UIView?)
 }
+
+#endif

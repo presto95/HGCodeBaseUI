@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Transform {
   
   case rotation(angle: CGFloat)
@@ -16,3 +18,5 @@ enum Transform {
   
   case identity
 }
+
+#endif

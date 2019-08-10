@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum TableViewSeparator {
   
   case each(style: UITableViewCell.SeparatorStyle,
@@ -24,3 +26,5 @@ enum TableViewSeparator {
   
   case insetReference(UITableView.SeparatorInsetReference)
 }
+
+#endif

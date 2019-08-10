@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum SliderColor {
   
   case each(minimumTrack: UIColor?, maximumTrack: UIColor?, thumb: UIColor?)
@@ -18,3 +20,5 @@ enum SliderColor {
   
   case thumb(UIColor?)
 }
+
+#endif

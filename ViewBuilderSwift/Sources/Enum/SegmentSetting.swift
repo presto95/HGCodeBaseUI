@@ -6,9 +6,13 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum SegmentSetting {
   
   case insert(Segment, index: Int)
   
   case modify(Segment, segmentIndex: Int)
 }
+
+#endif

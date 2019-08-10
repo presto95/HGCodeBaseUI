@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Height {
   
   case each(row: CGFloat, sectionHeader: CGFloat, sectionFooter: CGFloat)
@@ -18,3 +20,5 @@ enum Height {
   
   case sectionHeaderFooter(CGFloat)
 }
+
+#endif

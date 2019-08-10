@@ -6,9 +6,13 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum Segment {
   
   case image(UIImage?)
   
   case title(String?)
 }
+
+#endif

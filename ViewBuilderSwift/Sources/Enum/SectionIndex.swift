@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum SectionIndex {
   
   case each(minimumDisplayRowCount: Int,
@@ -21,3 +23,5 @@ enum SectionIndex {
   
   case trackingBackgroundColor(UIColor?)
 }
+
+#endif

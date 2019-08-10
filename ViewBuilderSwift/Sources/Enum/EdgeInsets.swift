@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum EdgeInsets {
   
   case each(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
@@ -28,3 +30,5 @@ enum EdgeInsets {
   
   case zero
 }
+
+#endif

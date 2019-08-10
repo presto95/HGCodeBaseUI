@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum SliderImage {
   
   case each(minimumValue: UIImage?,
@@ -24,3 +26,5 @@ enum SliderImage {
   
   case thumb((UIImage?, state: UIControl.State))
 }
+
+#endif

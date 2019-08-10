@@ -6,9 +6,13 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 enum CollectionViewRegisterView {
   
   case cell(TableViewRegisterMethod)
   
   case supplementaryView(TableViewRegisterMethod, kind: String)
 }
+
+#endif
