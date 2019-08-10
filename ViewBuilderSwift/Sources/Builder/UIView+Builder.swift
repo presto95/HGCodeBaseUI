@@ -424,12 +424,6 @@ extension Builder where Base: UIView {
     base.tag = tag
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

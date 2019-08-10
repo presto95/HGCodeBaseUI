@@ -89,12 +89,6 @@ extension Builder where Base: UIStepper {
     }
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

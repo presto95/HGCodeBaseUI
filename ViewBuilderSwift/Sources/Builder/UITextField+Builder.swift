@@ -167,12 +167,6 @@ extension Builder where Base: UITextField {
     base.inputAccessoryView = view
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

@@ -84,12 +84,6 @@ extension Builder where Base: UISlider {
     }
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

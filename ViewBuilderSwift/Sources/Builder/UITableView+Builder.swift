@@ -291,12 +291,6 @@ extension Builder where Base: UITableView {
     base.remembersLastFocusedIndexPath = flag
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

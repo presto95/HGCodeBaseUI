@@ -138,12 +138,6 @@ extension Builder where Base: UICollectionView {
     base.remembersLastFocusedIndexPath = flag
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

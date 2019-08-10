@@ -69,12 +69,6 @@ extension Builder where Base: UIStackView {
     base.setCustomSpacing(spacing, after: view)
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

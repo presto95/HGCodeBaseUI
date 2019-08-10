@@ -25,12 +25,6 @@ extension Builder where Base: UIPickerView {
     base.delegate = delegate
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

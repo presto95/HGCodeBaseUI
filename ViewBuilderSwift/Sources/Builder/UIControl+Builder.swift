@@ -49,12 +49,6 @@ extension Builder where Base: UIControl {
     base.addTarget(target, action: action, for: event)
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

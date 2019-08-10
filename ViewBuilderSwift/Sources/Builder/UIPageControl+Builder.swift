@@ -51,12 +51,6 @@ extension Builder where Base: UIPageControl {
     base.defersCurrentPageDisplay = flag
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

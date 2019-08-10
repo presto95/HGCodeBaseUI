@@ -188,12 +188,6 @@ extension Builder where Base: UILabel {
     base.preferredMaxLayoutWidth = width
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

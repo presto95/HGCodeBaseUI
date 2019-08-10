@@ -173,12 +173,6 @@ extension Builder where Base: UIButton {
     }
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

@@ -36,12 +36,6 @@ extension Builder where Base: UISwitch {
     }
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

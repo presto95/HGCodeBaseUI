@@ -281,12 +281,6 @@ extension Builder where Base: UIScrollView {
     base.indexDisplayMode = mode
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

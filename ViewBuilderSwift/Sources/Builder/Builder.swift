@@ -15,6 +15,10 @@ public struct Builder<Base> {
   public init(base: Base) {
     self.base = base
   }
+  
+  func build() -> Base {
+    return base
+  }
 }
 
 public protocol BuilderCompatible {

@@ -59,12 +59,6 @@ extension Builder where Base: UIProgressView {
     }
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

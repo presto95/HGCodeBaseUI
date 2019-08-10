@@ -144,12 +144,6 @@ extension Builder where Base: UISegmentedControl {
     base.setTitleTextAttributes(attributes, for: state)
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> Base {
-    return base
-  }
 }
 
 #endif

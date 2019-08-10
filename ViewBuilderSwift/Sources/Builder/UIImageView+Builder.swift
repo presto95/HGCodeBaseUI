@@ -71,12 +71,6 @@ extension Builder where Base: UIImageView {
     base.tintColor = color
     return self
   }
-  
-  // MARK: - Build
-  
-  func build() -> UIImageView {
-    return base
-  }
 }
 
 #endif
