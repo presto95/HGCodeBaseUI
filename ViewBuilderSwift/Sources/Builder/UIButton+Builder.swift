@@ -10,33 +10,113 @@
 
 public extension Builder where Base: UIButton {
   
-  // MARK: - Configuring the Button Title
+  // MARK: - Helper
   
+  /// Helper method associated with **title** setting feature.
+  ///
+  /// - `plain` case for `setTitle(_:for:)` method.
+  /// - `attributed` case for `setAttributed(_:for:)` method.
   @discardableResult
   func title(_ title: Text, for state: UIControl.State = .normal) -> Builder {
     switch title {
     case let .plain(title):
       base.setTitle(title, for: state)
     case let .attributed(title, attributes):
-      let attributedString = NSAttributedString(string: title, attributes: attributes)
-      base.setAttributedTitle(attributedString, for: state)
+      base.setAttributedTitle(.init(string: title, attributes: attributes), for: state)
     }
     return self
   }
   
+  /// Helper method associated with **title color** setting feature.
+  ///
+  /// - `plain` case for `setTitleColor(_:for:)` method.
+  /// - `shadow` case for `setTitleShadowColor(_:for:)` method.
   @discardableResult
-  func titleColor(_ color: UIColor?, for state: UIControl.State = .normal) -> Builder {
+  func titleColor(_ titleColor: ButtonBuilder.TitleColor,
+                  for state: UIControl.State = .normal) -> Builder {
+    switch titleColor {
+    case let .each(plain, shadow):
+      base.setTitleColor(plain, for: state)
+      base.setTitleShadowColor(shadow, for: state)
+    case let .plain(plain):
+      base.setTitleColor(plain, for: state)
+    case let .shadow(shadow):
+      base.setTitleShadowColor(shadow, for: state)
+    }
+    return self
+  }
+  
+  /// Helper method associated with **image** setting feature.
+  ///
+  /// - `plain` case for `setImage(_:for:)` method.
+  /// - `background` case for `setBackgroundImage(_:for:)` method.
+  @discardableResult
+  func image(_ image: ButtonBuilder.Image, for state: UIControl.State = .normal) -> Builder {
+    switch image {
+    case let .each(plain, background):
+      base.setImage(plain, for: state)
+      base.setBackgroundImage(background, for: state)
+    case let .plain(plain):
+      base.setImage(plain, for: state)
+    case let .background(background):
+      base.setBackgroundImage(background, for: state)
+    }
+    return self
+  }
+  
+  /// Helper method associated with **edge insets** setting feature.
+  ///
+  /// - `content` case for `contentEdgeInsets` property setter.
+  /// - `title` case for `titleEdgeInsets` property setter.
+  /// - `image` case for `imageEdgeInsets` property setter.
+  @discardableResult
+  func edgeInsets(_ edgeInsets: ButtonBuilder.EdgeInset) -> Builder {
+    switch edgeInsets {
+    case let .each(content, title, image):
+      base.contentEdgeInsets = content.uiEdgeInsets
+      base.titleEdgeInsets = title.uiEdgeInsets
+      base.imageEdgeInsets = image.uiEdgeInsets
+    case let .content(content):
+      base.contentEdgeInsets = content.uiEdgeInsets
+    case let .title(title):
+      base.titleEdgeInsets = title.uiEdgeInsets
+    case let .image(image):
+      base.imageEdgeInsets = image.uiEdgeInsets
+    }
+    return self
+  }
+  
+  // MARK: - Configuring the Button Title
+  
+  /// Wrapper of `setTitle(_:for:)` method.
+  @discardableResult
+  func title(_ title: String?, for state: UIControl.State) -> Builder {
+    base.setTitle(title, for: state)
+    return self
+  }
+  
+  /// Wrapper of `setAttributedTitle(_:for:)` method.
+  @discardableResult
+  func attributedTitle(_ title: NSAttributedString?, for state: UIControl.State) -> Builder {
+    base.setAttributedTitle(title, for: state)
+    return self
+  }
+  
+  /// Wrapper of `setTitleColor(_:for:)` method.
+  @discardableResult
+  func titleColor(_ color: UIColor?, for state: UIControl.State) -> Builder {
     base.setTitleColor(color, for: state)
     return self
   }
   
+  /// Wrapper of `setTitleShadowColor(_:for:)` method.
   @discardableResult
-  func titleShadowColor(_ color: UIColor?,
-                        for state: UIControl.State = .normal) -> Builder {
+  func titleShadowColor(_ color: UIColor?, for state: UIControl.State) -> Builder {
     base.setTitleShadowColor(color, for: state)
     return self
   }
   
+  /// Wrapper of `reversesTitleShadowWhenHighlighted` property setter.
   @discardableResult
   func reversesTitleShadowWhenHighlighted(_ flag: Bool) -> Builder {
     base.reversesTitleShadowWhenHighlighted = flag
@@ -45,37 +125,42 @@ public extension Builder where Base: UIButton {
   
   // MARK: - Configurint Button Presentation
   
+  /// Wrapper of `adjustsImageWhenHighlighted` property setter.
   @discardableResult
   func adjustsImageWhenHighlighted(_ flag: Bool) -> Builder {
     base.adjustsImageWhenHighlighted = flag
     return self
   }
   
+  /// Wrapper of `adjustsImageWhenDisabled` property setter.
   @discardableResult
   func adjustsImageWhenDisabled(_ flag: Bool) -> Builder {
     base.adjustsImageWhenDisabled = flag
     return self
   }
   
+  /// Wrapper of `showsTouchWhenHighlighted` property setter.
   @discardableResult
   func showsTouchWhenHighlighted(_ flag: Bool) -> Builder {
     base.showsTouchWhenHighlighted = flag
     return self
   }
   
+  /// Wrapper of `setBackgroundImage(_:for:)` method.
   @discardableResult
-  func backgroundImage(_ image: UIImage?,
-                       for state: UIControl.State = .normal) -> Builder {
+  func backgroundImage(_ image: UIImage?, for state: UIControl.State) -> Builder {
     base.setBackgroundImage(image, for: state)
     return self
   }
   
+  /// Wrapper of `setImage(_:for:)` method.
   @discardableResult
-  func image(_ image: UIImage?, for state: UIControl.State = .normal) -> Builder {
+  func image(_ image: UIImage?, for state: UIControl.State) -> Builder {
     base.setImage(image, for: state)
     return self
   }
   
+  /// Wrapper of `tintColor` property setter.
   @discardableResult
   func tintColor(_ color: UIColor!) -> Builder {
     base.tintColor = color
@@ -84,93 +169,24 @@ public extension Builder where Base: UIButton {
   
   // MARK: - Configuring Edge Insets
   
+  /// Wrapper of `contentEdgeInsets` property setter.
   @discardableResult
-  func contentEdgeInsets(_ edgeInsets: EdgeInsets) -> Builder {
-    switch edgeInsets {
-    case let .each(top, left, bottom, right):
-      base.contentEdgeInsets = .init(top: top, left: left, bottom: bottom, right: right)
-    case let .symmetric(horizontal, vertical):
-      base.contentEdgeInsets = .init(top: vertical,
-                                       left: horizontal,
-                                       bottom: vertical,
-                                       right: horizontal)
-    case let .all(value):
-      base.contentEdgeInsets = .init(top: value, left: value, bottom: value, right: value)
-    case let .top(value):
-      base.contentEdgeInsets = .init(top: value, left: 0, bottom: 0, right: 0)
-    case let .left(value):
-      base.contentEdgeInsets = .init(top: 0, left: value, bottom: 0, right: 0)
-    case let .bottom(value):
-      base.contentEdgeInsets = .init(top: 0, left: 0, bottom: value, right: 0)
-    case let .right(value):
-      base.contentEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: value)
-    case let .horizontal(value):
-      base.contentEdgeInsets = .init(top: 0, left: value, bottom: 0, right: value)
-    case let .vertical(value):
-      base.contentEdgeInsets = .init(top: value, left: 0, bottom: value, right: 0)
-    case .zero:
-      base.contentEdgeInsets = .zero
-    }
+  func contentEdgeInsets(_ insets: UIEdgeInsets) -> Builder {
+    base.contentEdgeInsets = insets
     return self
   }
   
+  /// Wrapper of `titleEdgeInsets` property setter.
   @discardableResult
-  func titleEdgeInsets(_ edgeInsets: EdgeInsets) -> Builder {
-    switch edgeInsets {
-    case let .each(top, left, bottom, right):
-      base.titleEdgeInsets = .init(top: top, left: left, bottom: bottom, right: right)
-    case let .symmetric(horizontal, vertical):
-      base.titleEdgeInsets = .init(top: vertical,
-                                     left: horizontal,
-                                     bottom: vertical,
-                                     right: horizontal)
-    case let .all(value):
-      base.titleEdgeInsets = .init(top: value, left: value, bottom: value, right: value)
-    case let .top(value):
-      base.titleEdgeInsets = .init(top: value, left: 0, bottom: 0, right: 0)
-    case let .left(value):
-      base.titleEdgeInsets = .init(top: 0, left: value, bottom: 0, right: 0)
-    case let .bottom(value):
-      base.titleEdgeInsets = .init(top: 0, left: 0, bottom: value, right: 0)
-    case let .right(value):
-      base.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: value)
-    case let .horizontal(value):
-      base.titleEdgeInsets = .init(top: 0, left: value, bottom: 0, right: value)
-    case let .vertical(value):
-      base.titleEdgeInsets = .init(top: value, left: 0, bottom: value, right: 0)
-    case .zero:
-      base.titleEdgeInsets = .zero
-    }
+  func titleEdgeInsets(_ insets: UIEdgeInsets) -> Builder {
+    base.titleEdgeInsets = insets
     return self
   }
   
+  /// Wrapper of `imageEdgeInsets` property setter.
   @discardableResult
-  func imageEdgeInsets(_ edgeInsets: EdgeInsets) -> Builder {
-    switch edgeInsets {
-    case let .each(top, left, bottom, right):
-      base.imageEdgeInsets = .init(top: top, left: left, bottom: bottom, right: right)
-    case let .symmetric(horizontal, vertical):
-      base.imageEdgeInsets = .init(top: vertical,
-                                     left: horizontal,
-                                     bottom: vertical,
-                                     right: horizontal)
-    case let .all(value):
-      base.imageEdgeInsets = .init(top: value, left: value, bottom: value, right: value)
-    case let .top(value):
-      base.imageEdgeInsets = .init(top: value, left: 0, bottom: 0, right: 0)
-    case let .left(value):
-      base.imageEdgeInsets = .init(top: 0, left: value, bottom: 0, right: 0)
-    case let .bottom(value):
-      base.imageEdgeInsets = .init(top: 0, left: 0, bottom: value, right: 0)
-    case let .right(value):
-      base.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: value)
-    case let .horizontal(value):
-      base.imageEdgeInsets = .init(top: 0, left: value, bottom: 0, right: value)
-    case let .vertical(value):
-      base.imageEdgeInsets = .init(top: value, left: 0, bottom: value, right: 0)
-    case .zero:
-      base.imageEdgeInsets = .zero
-    }
+  func imageEdgeInsets(_ insets: UIEdgeInsets) -> Builder {
+    base.imageEdgeInsets = insets
     return self
   }
 }
