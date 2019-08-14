@@ -12,7 +12,7 @@ public extension Builder where Base: UICollectionView {
   
   // MARK: - Helper
   
-  /// Helper method associated with **cell & view register** setting feature.
+  /// Helper associated with **cell & view register** setting feature.
   ///
   /// - `cell` case for `register(_:forCellWithReuseIdentifier:)` method.
   /// - `supplementaryView` case for
@@ -42,7 +42,7 @@ public extension Builder where Base: UICollectionView {
     return self
   }
   
-  /// Helper method associated with **selection allowing*** setting feature.
+  /// Helper associated with **selection allowing*** setting feature.
   ///
   /// - `single` case for `allowsSelection` property setter.
   /// - `multiple` case for `allowsMultipleSelection` property setter.

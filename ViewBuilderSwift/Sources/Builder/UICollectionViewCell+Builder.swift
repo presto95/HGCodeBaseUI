@@ -12,7 +12,7 @@ public extension Builder where Base: UICollectionViewCell {
   
   // MARK: - Helper
   
-  /// Helper method associated with **background view** setting feature.
+  /// Helper associated with **background view** setting feature.
   ///
   /// - `plain` case for `backgroundView` property setter.
   /// - `selected` case for `selectedBackgroundView` property setter.

@@ -12,7 +12,7 @@ public extension Builder where Base: UIButton {
   
   // MARK: - Helper
   
-  /// Helper method associated with **title** setting feature.
+  /// Helper associated with **title** setting feature.
   ///
   /// - `plain` case for `setTitle(_:for:)` method.
   /// - `attributed` case for `setAttributed(_:for:)` method.
@@ -27,7 +27,7 @@ public extension Builder where Base: UIButton {
     return self
   }
   
-  /// Helper method associated with **title color** setting feature.
+  /// Helper associated with **title color** setting feature.
   ///
   /// - `plain` case for `setTitleColor(_:for:)` method.
   /// - `shadow` case for `setTitleShadowColor(_:for:)` method.
@@ -46,7 +46,7 @@ public extension Builder where Base: UIButton {
     return self
   }
   
-  /// Helper method associated with **image** setting feature.
+  /// Helper associated with **image** setting feature.
   ///
   /// - `plain` case for `setImage(_:for:)` method.
   /// - `background` case for `setBackgroundImage(_:for:)` method.
@@ -64,7 +64,7 @@ public extension Builder where Base: UIButton {
     return self
   }
   
-  /// Helper method associated with **edge insets** setting feature.
+  /// Helper associated with **edge insets** setting feature.
   ///
   /// - `content` case for `contentEdgeInsets` property setter.
   /// - `title` case for `titleEdgeInsets` property setter.

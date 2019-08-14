@@ -12,7 +12,7 @@ public extension Builder where Base: UIDatePicker {
   
   // MARK: - Helper
   
-  /// Helper method associated with **date** setting feature.
+  /// Helper associated with **date** setting feature.
   ///
   /// - `range` case for `minimumDate` and `maximumDate` property setter.
   /// - `date` case for `date` property setter.

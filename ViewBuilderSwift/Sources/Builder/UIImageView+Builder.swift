@@ -12,7 +12,7 @@ public extension Builder where Base: UIImageView {
   
   // MARK: - Helper
   
-  /// Helper method associated with **animation** setting feature.
+  /// Helper associated with **animation** setting feature.
   ///
   /// - `images` case for `animationImages` and `highlightedAnimationImages` property setter.
   /// - `duration` case for `animationDuration` property setter.
@@ -51,7 +51,7 @@ public extension Builder where Base: UIImageView {
     return self
   }
   
-  /// Helper method associated with **image** setting feature.
+  /// Helper associated with **image** setting feature.
   ///
   /// - `plain` case for `image` property setter.
   /// - `highlighted` case for `highlightedImage` property setter.
