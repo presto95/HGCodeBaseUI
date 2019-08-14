@@ -12,6 +12,7 @@ public extension Builder where Base: UIPickerView {
   
   // MARK: - Providing the Picker Data
   
+  /// Wrapper of `dataSource` property setter.
   @discardableResult
   func dataSource<T>(_ dataSource: T?) -> Builder where T: UIPickerViewDataSource {
     base.dataSource = dataSource
@@ -20,6 +21,7 @@ public extension Builder where Base: UIPickerView {
   
   // MARK: - Customizing the Picker Behavior
   
+  /// Wrapper of `delegate` property setter.
   @discardableResult
   func delegate<T>(_ delegate: T?) -> Builder where T: UIPickerViewDelegate {
     base.delegate = delegate
