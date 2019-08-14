@@ -25,14 +25,14 @@ public protocol UI {
   init(owner: Owner)
 }
 
-extension UI where Owner: UIViewController {
+public extension UI where Owner: UIViewController {
   
   var view: UIView {
     return owner.view
   }
 }
 
-extension UI where Owner: UIView {
+public extension UI where Owner: UIView {
   
   var view: UIView {
     return owner

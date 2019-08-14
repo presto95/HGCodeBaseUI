@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UITabBar {
+public extension Builder where Base: UITabBar {
   
   // MARK: - Helper
   

@@ -23,7 +23,7 @@ public enum KeyboardNotification {
   case didChangeFrame
 }
 
-extension KeyboardNotification {
+public extension KeyboardNotification {
   
   var notificationName: NSNotification.Name {
     switch self {

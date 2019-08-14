@@ -8,7 +8,7 @@
 
 #if os(iOS)
 
-extension Builder where Base: UIBarItem {
+public extension Builder where Base: UIBarItem {
   
   // MARK: - Helper
   

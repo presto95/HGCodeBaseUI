@@ -39,7 +39,7 @@ public enum EdgeInsets {
   case zero
 }
 
-extension EdgeInsets {
+public extension EdgeInsets {
   
   var uiEdgeInsets: UIEdgeInsets {
     switch self {

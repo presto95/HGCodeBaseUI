@@ -19,7 +19,7 @@ public enum Rectangle<Dimension> where Dimension: DimensionProtocol {
   case zero
 }
 
-extension Rectangle where Dimension == Int {
+public extension Rectangle where Dimension == Int {
   
   var cgRect: CGRect {
     switch self {
@@ -54,7 +54,7 @@ extension Rectangle where Dimension == Int {
   }
 }
 
-extension Rectangle where Dimension == Double {
+public extension Rectangle where Dimension == Double {
   
   var cgRect: CGRect {
     switch self {
@@ -89,7 +89,7 @@ extension Rectangle where Dimension == Double {
   }
 }
 
-extension Rectangle where Dimension == CGFloat {
+public extension Rectangle where Dimension == CGFloat {
   
   var cgRect: CGRect {
     switch self {

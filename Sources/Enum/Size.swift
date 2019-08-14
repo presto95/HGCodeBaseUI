@@ -17,7 +17,7 @@ public enum Size<Dimension> where Dimension: DimensionProtocol {
   case zero
 }
 
-extension Size where Dimension == Int {
+public extension Size where Dimension == Int {
   
   var cgSize: CGSize {
     switch self {
@@ -31,7 +31,7 @@ extension Size where Dimension == Int {
   }
 }
 
-extension Size where Dimension == Double {
+public extension Size where Dimension == Double {
   
   var cgSize: CGSize {
     switch self {
@@ -45,7 +45,7 @@ extension Size where Dimension == Double {
   }
 }
 
-extension Size where Dimension == CGFloat {
+public extension Size where Dimension == CGFloat {
   
   var cgSize: CGSize {
     switch self {

@@ -17,7 +17,7 @@ public enum Point<Dimension> where Dimension: DimensionProtocol {
   case zero
 }
 
-extension Point where Dimension == Int {
+public extension Point where Dimension == Int {
   
   var cgPoint: CGPoint {
     switch self {
@@ -31,7 +31,7 @@ extension Point where Dimension == Int {
   }
 }
 
-extension Point where Dimension == Double {
+public extension Point where Dimension == Double {
   
   var cgPoint: CGPoint {
     switch self {
@@ -45,7 +45,7 @@ extension Point where Dimension == Double {
   }
 }
 
-extension Point where Dimension == CGFloat {
+public extension Point where Dimension == CGFloat {
   
   var cgPoint: CGPoint {
     switch self {

@@ -30,13 +30,13 @@ public protocol BuilderCompatible {
   var builder: Builder<BuilderBase> { get }
 }
 
-extension BuilderCompatible {
+public extension BuilderCompatible {
   
-  public static var builder: Builder<Self>.Type {
+  static var builder: Builder<Self>.Type {
     return Builder<Self>.self
   }
   
-  public var builder: Builder<Self> {
+  var builder: Builder<Self> {
     return Builder(base: self)
   }
 }

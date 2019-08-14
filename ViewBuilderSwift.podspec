@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  View Setting with View-Independent Object & Builder
+  View Setting with View-Independent Object & Builder.
                    DESC
 
   spec.homepage     = "https://github.com/presto95/ViewBuilderSwift"
@@ -90,7 +90,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Sources/*.swift"
+  spec.source_files  = "Sources/**/*.swift"
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -133,4 +133,5 @@ Pod::Spec.new do |spec|
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   spec.ios.dependency "SnapKit", "~> 5.0.0"
 
+  spec.swift_version = "4.2"
 end

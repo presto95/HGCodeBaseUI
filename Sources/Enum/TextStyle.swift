@@ -6,6 +6,8 @@
 //  Copyright © 2019 presto. All rights reserved.
 //
 
+#if os(iOS)
+
 public enum TextStyle {
   
   case each(color: UIColor?, font: UIFont?, alignment: NSTextAlignment)
@@ -16,3 +18,5 @@ public enum TextStyle {
   
   case alignment(NSTextAlignment)
 }
+
+#endif
