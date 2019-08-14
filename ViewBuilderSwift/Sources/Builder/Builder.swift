@@ -44,4 +44,8 @@ extension BuilderCompatible {
 // UIView and UIView descendants conforms BuilderCompatible protocol.
 extension UIView: BuilderCompatible { }
 
+extension UIBarItem: BuilderCompatible { }
+
+extension UIBarButtonItemGroup: BuilderCompatible { }
+
 #endif
