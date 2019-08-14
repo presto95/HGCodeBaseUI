@@ -9,19 +9,21 @@
 #if os(iOS)
 
 public enum SegmentedControlBuilder {
-  
-  public enum Segment {
+
+  public enum Image {
     
-    case image(UIImage?)
+    case each(background: (UIImage?, state: UIControl.State, barMetrics: UIBarMetrics),
+              divider: (UIImage?,
+                        leftSegmentState: UIControl.State,
+                        rightSegmentState: UIControl.State,
+                        barMetrcis: UIBarMetrics))
     
-    case title(String?)
-  }
-  
-  public enum Setting {
+    case background(UIImage?, state: UIControl.State, barMetrics: UIBarMetrics)
     
-    case insert(Segment, index: Int)
-    
-    case modify(Segment, segmentIndex: Int)
+    case divider(UIImage?,
+                leftSegmentState: UIControl.State,
+                rightSegmentState: UIControl.State,
+                barMetrcis: UIBarMetrics)
   }
 }
 

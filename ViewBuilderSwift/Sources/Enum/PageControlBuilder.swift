@@ -10,7 +10,7 @@
 
 public enum PageControlBuilder {
   
-  public enum Indicator {
+  public enum IndicatorColor {
     
     case each(page: UIColor?, currentPage: UIColor?)
     

@@ -12,15 +12,15 @@ public enum DatePickerBuilder {
   
   public enum DateType {
     
-    case each(Date, maximumDate: Date?, minimumDate: Date?)
+    case each(Date, min: Date?, max: Date?)
     
-    case range(maximum: Date?, minimum: Date?)
+    case range(min: Date?, max: Date?)
     
     case date(Date)
     
-    case maximum(Date?)
+    case min(Date?)
     
-    case minimum(Date?)
+    case max(Date?)
   }
 }
 

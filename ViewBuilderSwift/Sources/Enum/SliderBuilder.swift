@@ -12,34 +12,49 @@ public enum SliderBuilder {
   
   public enum Color {
     
-    case each(minimumTrack: UIColor?, maximumTrack: UIColor?, thumb: UIColor?)
+    public enum Track {
+      
+      case each(min: UIColor?, max: UIColor?)
+      
+      case min(UIColor?)
+      
+      case max(UIColor?)
+    }
     
-    case trackRange(minimum: UIColor?, maximum: UIColor?)
+    case each(track: Track, thumb: UIColor?)
     
-    case minimumTrack(UIColor?)
-    
-    case maximumTrack(UIColor?)
+    case track(Track)
     
     case thumb(UIColor?)
   }
   
   public enum Image {
     
-    case each(minimumValue: UIImage?,
-      maximumValue: UIImage?,
-      minimumTrack: (UIImage?, state: UIControl.State),
-      maximumTrack: (UIImage?, state: UIControl.State),
-      thumb: (UIImage?, state: UIControl.State))
+    public enum Value {
+      
+      case each(min: UIImage?, max: UIImage?)
+      
+      case min(UIImage?)
+      
+      case max(UIImage?)
+    }
     
-    case minimumValue(UIImage?)
+    public enum Track {
+      
+      case each(min: (UIImage?, state: UIControl.State), max: (UIImage?, state: UIControl.State))
+      
+      case min(UIImage?, state: UIControl.State)
+      
+      case max(UIImage?, state: UIControl.State)
+    }
     
-    case maximumValue(UIImage?)
+    case each(value: Value, track: Track, thumb: (UIImage?, state: UIControl.State))
     
-    case minimumTrack((UIImage?, state: UIControl.State))
+    case value(Value)
     
-    case maximumTrack((UIImage?, state: UIControl.State))
+    case track(Track)
     
-    case thumb((UIImage?, state: UIControl.State))
+    case thumb(UIImage?, state: UIControl.State)
   }
 }
 

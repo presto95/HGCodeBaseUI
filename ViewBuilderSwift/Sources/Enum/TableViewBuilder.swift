@@ -27,10 +27,10 @@ public enum TableViewBuilder {
   public enum Separator {
     
     case each(style: UITableViewCell.SeparatorStyle,
-      color: UIColor?,
-      effect: UIVisualEffect?,
-      inset: EdgeInsets,
-      insetReference: UITableView.SeparatorInsetReference)
+              color: UIColor?,
+              effect: UIVisualEffect?,
+              inset: EdgeInsets,
+              insetReference: UITableView.SeparatorInsetReference)
     
     case style(UITableViewCell.SeparatorStyle)
     
@@ -46,9 +46,9 @@ public enum TableViewBuilder {
   public enum SectionIndex {
     
     case each(minimumDisplayRowCount: Int,
-      color: UIColor?,
-      backgroundColor: UIColor?,
-      trackingBackgroundColor: UIColor?)
+              color: UIColor?,
+              backgroundColor: UIColor?,
+              trackingBackgroundColor: UIColor?)
     
     case minimumDisplayRowCount(Int)
     
@@ -70,15 +70,22 @@ public enum TableViewBuilder {
 
   public enum Height {
     
-    case each(row: CGFloat, sectionHeader: CGFloat, sectionFooter: CGFloat)
+    public enum HeightType {
     
-    case row(CGFloat)
+      case plain(CGFloat)
+      
+      case estimated(CGFloat)
+    }
     
-    case sectionHeader(CGFloat)
+    case each(row: HeightType, sectionHeader: HeightType, sectionFooter: HeightType)
     
-    case sectionFooter(CGFloat)
+    case row(HeightType)
     
-    case sectionHeaderFooter(CGFloat)
+    case sectionHeader(HeightType)
+    
+    case sectionFooter(HeightType)
+    
+    case sectionHeaderFooter(HeightType)
   }
 }
 

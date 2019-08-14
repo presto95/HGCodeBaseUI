@@ -12,11 +12,42 @@ public enum ImageViewBuilder {
   
   public enum Animation {
     
-    case each(duration: TimeInterval, repeatCount: Int)
+    public enum Image {
+      
+      case each(plain: [UIImage]?, highlighted: [UIImage]?)
+      
+      case plain([UIImage]?)
+      
+      case highlighted([UIImage]?)
+    }
+    
+    case each(images: Image, duration: TimeInterval, repeatCount: Int)
+    
+    case images(Image)
     
     case duration(TimeInterval)
     
     case repeatCount(Int)
+  }
+  
+  public enum Image {
+    
+    public enum Animation {
+      
+      case each(plain: [UIImage]?, highlighted: [UIImage]?)
+      
+      case plain([UIImage]?)
+      
+      case highlighted([UIImage]?)
+    }
+    
+    case each(plain: UIImage?, highlighted: UIImage?, animation: Animation)
+    
+    case plain(UIImage?)
+    
+    case highlighted(UIImage?)
+    
+    case animation(Animation)
   }
 }
 

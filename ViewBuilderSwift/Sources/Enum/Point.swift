@@ -17,4 +17,46 @@ public enum Point<Dimension> where Dimension: DimensionProtocol {
   case zero
 }
 
+extension Point where Dimension == Int {
+  
+  var cgPoint: CGPoint {
+    switch self {
+    case let .each(x, y):
+      return .init(x: x, y: y)
+    case let .all(value):
+      return .init(x: value, y: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
+extension Point where Dimension == Double {
+  
+  var cgPoint: CGPoint {
+    switch self {
+    case let .each(x, y):
+      return .init(x: x, y: y)
+    case let .all(value):
+      return .init(x: value, y: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
+extension Point where Dimension == CGFloat {
+  
+  var cgPoint: CGPoint {
+    switch self {
+    case let .each(x, y):
+      return .init(x: x, y: y)
+    case let .all(value):
+      return .init(x: value, y: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
 #endif

@@ -12,7 +12,7 @@ public extension Builder where Base: UILabel {
   
   // MARK: - Helper
   
-  /// Helper associated with **text and text style** setting feature.
+  /// Helper associated with **text & text style** setting feature.
   ///
   /// - `plain` case for `text` property setter.
   /// - `attributed` case for `attributedText` property setter.

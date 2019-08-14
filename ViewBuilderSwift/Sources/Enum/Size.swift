@@ -17,4 +17,46 @@ public enum Size<Dimension> where Dimension: DimensionProtocol {
   case zero
 }
 
+extension Size where Dimension == Int {
+  
+  var cgSize: CGSize {
+    switch self {
+    case let .each(width, height):
+      return .init(width: width, height: height)
+    case let .all(value):
+      return .init(width: value, height: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
+extension Size where Dimension == Double {
+  
+  var cgSize: CGSize {
+    switch self {
+    case let .each(width, height):
+      return .init(width: width, height: height)
+    case let .all(value):
+      return .init(width: value, height: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
+extension Size where Dimension == CGFloat {
+  
+  var cgSize: CGSize {
+    switch self {
+    case let .each(width, height):
+      return .init(width: width, height: height)
+    case let .all(value):
+      return .init(width: value, height: value)
+    case .zero:
+      return .zero
+    }
+  }
+}
+
 #endif

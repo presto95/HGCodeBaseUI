@@ -7,6 +7,7 @@ disabled_rules:
   - file_length
   - function_body_length
   - large_tuple
+  - nesting
 
 excluded:
   - Pods/

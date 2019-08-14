@@ -10,13 +10,13 @@
 
 public enum SearchBarBuilder {
  
-  public enum Style {
+  public enum BarStyle {
     
-    case each(bar: UIBarStyle, searchBar: UISearchBar.Style)
+    case each(plain: UIBarStyle, search: UISearchBar.Style)
     
-    case bar(UIBarStyle)
+    case plain(UIBarStyle)
     
-    case searchBar(UISearchBar.Style)
+    case search(UISearchBar.Style)
   }
   
   public enum Color {
@@ -28,18 +28,18 @@ public enum SearchBarBuilder {
     case searchBar(UIColor?)
   }
 
-  public enum ButtonVisibility {
+  public enum Button<T> {
     
-    case each(bookmark: Bool, cancel: Bool, searchResults: Bool)
+    case each(bookmark: T, cancel: T, searchResults: T)
     
-    case bookmark(Bool)
+    case bookmark(T)
     
-    case cancel(Bool)
+    case cancel(T)
     
-    case searchResults(Bool)
+    case searchResults(T)
   }
   
-  public enum ScopeBarButton {
+  public enum Scope {
     
     case each(buttonTitles: [String]?, selectedButtonIndex: Int, showsBar: Bool)
     
@@ -52,34 +52,34 @@ public enum SearchBarBuilder {
   
   public enum Image {
     
-    case each(icon: (UIImage?, icon: UISearchBar.Icon, state: UIControl.State),
-      background: (UIImage?, barPosition: UIBarPosition, barMetrics: UIBarMetrics),
-      scopeBarBackground: (UIImage?, state: UIControl.State),
-      scopeBarButtonDivider: (UIImage?,
-        leftSegmentState: UIControl.State,
-        rightSegmentState: UIControl.State),
-      searchFieldBackground: (UIImage?, state: UIControl.State))
+    case each(plain: (UIImage?, icon: UISearchBar.Icon, state: UIControl.State),
+              background: (UIImage?, barPosition: UIBarPosition, barMetrics: UIBarMetrics),
+              scopeBarBackground: (UIImage?, state: UIControl.State),
+              scopeBarButtonDivider: (UIImage?,
+                                      leftSegmentState: UIControl.State,
+                                      rightSegmentState: UIControl.State),
+                                      searchFieldBackground: (UIImage?, state: UIControl.State))
     
-    case icon(UIImage?, icon: UISearchBar.Icon, state: UIControl.State)
+    case plain(UIImage?, icon: UISearchBar.Icon, state: UIControl.State)
     
     case background(UIImage?, barPosition: UIBarPosition, barMetrics: UIBarMetrics)
     
     case scopeBarButtonBackground(UIImage?, state: UIControl.State)
     
     case scopeBarButtonDivider(UIImage?,
-      leftSegmentState: UIControl.State,
-      rightSegmentState: UIControl.State)
+                              leftSegmentState: UIControl.State,
+                              rightSegmentState: UIControl.State)
     
     case searchFieldBackground(UIImage?, state: UIControl.State)
   }
   
   public enum PositionAdjustment {
     
-    case each(icon: (UIOffset, icon: UISearchBar.Icon),
-      searchFieldBackground: UIOffset,
-      searchText: UIOffset)
+    case each(plain: (UIOffset, icon: UISearchBar.Icon),
+              searchFieldBackground: UIOffset,
+              searchText: UIOffset)
     
-    case icon(UIOffset, icon: UISearchBar.Icon)
+    case plain(UIOffset, icon: UISearchBar.Icon)
     
     case searchFieldBackground(UIOffset)
     

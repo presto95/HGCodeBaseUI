@@ -12,9 +12,9 @@ public enum TableViewCellBuilder {
   
   public enum BackgroundView {
     
-    case each(normal: UIView?, selected: UIView?, multipleSelection: UIView?)
+    case each(plain: UIView?, selected: UIView?, multipleSelection: UIView?)
     
-    case normal(UIView?)
+    case plain(UIView?)
     
     case selected(UIView?)
     
@@ -24,11 +24,11 @@ public enum TableViewCellBuilder {
   public enum Accessory {
     
     case each(type: UITableViewCell.AccessoryType,
-      view: UIView?,
-      editingType: UITableViewCell.AccessoryType,
-      editingView: UIView?)
+              view: UIView?,
+              editingType: UITableViewCell.AccessoryType,
+              editingView: UIView?)
     
-    case normal(type: UITableViewCell.AccessoryType, view: UIView?)
+    case plain(type: UITableViewCell.AccessoryType, view: UIView?)
     
     case editing(type: UITableViewCell.AccessoryType, view: UIView?)
     

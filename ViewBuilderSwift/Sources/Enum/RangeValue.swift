@@ -10,15 +10,15 @@
 
 public enum RangeValue<T> where T: Numeric {
   
-  case each(T, maximum: T, minimum: T)
+  case each(value: T, min: T, max: T)
   
-  case range(maximum: T, mininum: T)
+  case range(min: T, max: T)
   
   case value(T)
   
-  case maximum(T)
+  case min(T)
   
-  case minimum(T)
+  case max(T)
 }
 
 #endif

@@ -12,19 +12,19 @@ public enum ViewBuilder {
   
   public enum GestureRecognizer {
     
-    case tap(target: Any?, action: Selector?)
+    case tap
     
-    case pinch(target: Any?, action: Selector?)
+    case pinch
     
-    case rotation(target: Any?, action: Selector?)
+    case rotation
     
-    case swipe(target: Any?, action: Selector?)
+    case swipe
     
-    case pan(target: Any?, action: Selector?)
+    case pan
     
-    case screenEdgePan(target: Any?, action: Selector?)
+    case screenEdgePan
     
-    case longPress(target: Any?, action: Selector?)
+    case longPress
   }
   
   public enum Transform {
@@ -36,6 +36,15 @@ public enum ViewBuilder {
     case translation(x: CGFloat, y: CGFloat)
     
     case identity
+  }
+  
+  public enum Color {
+    
+    case each(plain: UIColor!, background: UIColor?)
+    
+    case plain(UIColor!)
+    
+    case background(UIColor?)
   }
 }
 

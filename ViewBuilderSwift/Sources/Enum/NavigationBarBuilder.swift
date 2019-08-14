@@ -18,14 +18,41 @@ public enum NavigationBarBuilder {
     
     case largeTitle([NSAttributedString.Key: Any]?)
   }
+
+  public enum Image {
+    
+    public enum BackIndicator {
+      
+      case each(plain: UIImage?, transitionMask: UIImage?)
+      
+      case plain(UIImage?)
+      
+      case transitionMask(UIImage?)
+    }
+    
+    public enum Background {
+      
+      case unspecifiedPosition(UIImage?, barMetrics: UIBarMetrics)
+      
+      case specifiedPosition(UIImage?, barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+    }
+    
+    case each(backIndicator: BackIndicator, shadow: UIImage?, background: Background)
+    
+    case backIndicator(BackIndicator)
+    
+    case shadow(UIImage?)
+    
+    case background(Background)
+  }
   
-  public enum BackIndicatorImage {
+  public enum Color {
     
-    case each(normal: UIImage?, transitionMask: UIImage?)
+    case each(plain: UIColor!, bar: UIColor?)
     
-    case normal(UIImage?)
+    case plain(UIColor!)
     
-    case transitionMask(UIImage?)
+    case bar(UIColor?)
   }
 }
 

@@ -12,9 +12,9 @@ public enum CollectionViewCellBuilder {
   
   public enum BackgroundView {
     
-    case each(normal: UIView?, selected: UIView?)
+    case each(plain: UIView?, selected: UIView?)
     
-    case normal(UIView?)
+    case plain(UIView?)
     
     case selected(UIView?)
   }

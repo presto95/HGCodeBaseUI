@@ -41,6 +41,7 @@ extension BuilderCompatible {
   }
 }
 
+// UIView and UIView descendants conforms BuilderCompatible protocol.
 extension UIView: BuilderCompatible { }
 
 #endif
