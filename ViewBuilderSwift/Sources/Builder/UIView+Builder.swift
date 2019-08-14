@@ -12,339 +12,90 @@ import SnapKit
 
 public extension Builder where Base: UIView {
   
-  // MARK: - Configuring a View's Visual Appearance
+  // MARK: - Helper
   
+  /// Helper associated with **color** setting feature.
+  ///
+  /// - `plain` case for `tintColor` property setter.
+  /// - `background` case for `backgroundColor` property setter.
   @discardableResult
-  func backgroundColor(_ backgroundColor: UIColor?) -> Builder {
-    base.backgroundColor = backgroundColor
+  func color(_ color: ViewBuilder.Color) -> Builder {
+    switch color {
+    case let .each(plain, background):
+      base.tintColor = plain
+      base.backgroundColor = background
+    case let .plain(plain):
+      base.tintColor = plain
+    case let .background(background):
+      base.backgroundColor = background
+    }
     return self
   }
   
-  @discardableResult
-  func isHidden(_ flag: Bool) -> Builder {
-    base.isHidden = flag
-    return self
-  }
-  
-  @discardableResult
-  func alpha(_ alpha: CGFloat) -> Builder {
-    base.alpha = alpha
-    return self
-  }
-  
-  @discardableResult
-  func isOpaque(_ flag: Bool) -> Builder {
-    base.isOpaque = flag
-    return self
-  }
-  
-  @discardableResult
-  func tintColor(_ tintColor: UIColor!) -> Builder {
-    base.tintColor = tintColor
-    return self
-  }
-  
-  @discardableResult
-  func tintAdjustmentMode(_ mode: UIView.TintAdjustmentMode) -> Builder {
-    base.tintAdjustmentMode = mode
-    return self
-  }
-  
-  @discardableResult
-  func clipsToBounds(_ flag: Bool) -> Builder {
-    base.clipsToBounds = flag
-    return self
-  }
-  
-  @discardableResult
-  func clearsContextBeforeDrawing(_ flag: Bool) -> Builder {
-    base.clearsContextBeforeDrawing = flag
-    return self
-  }
-  
-  @discardableResult
-  func mask(_ mask: UIView?) -> Builder {
-    base.mask = mask
-    return self
-  }
-  
-  // MARK: - Configuring the Event-Related Behavior
-  
-  @discardableResult
-  func isUserInteractionEnabled(_ flag: Bool) -> Builder {
-    base.isUserInteractionEnabled = flag
-    return self
-  }
-  
-  @discardableResult
-  func isMultipleTouchEnabled(_ flag: Bool) -> Builder {
-    base.isMultipleTouchEnabled = flag
-    return self
-  }
-  
-  @discardableResult
-  func isExclusiveTouch(_ flag: Bool) -> Builder {
-    base.isExclusiveTouch = flag
-    return self
-  }
-  
-  // MARK: - Configuring the Bounds and Frame Rectangles
-  
+  /// Helper of `frame` property setter.
   @discardableResult
   func frame(_ rectangle: Rectangle<Int>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.frame = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.frame = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.frame = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.frame = .init(origin: .init(x: value, y: value),
-                           size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.frame = .init(origin: .init(x: originValue, y: originValue),
-                           size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.frame = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.frame = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.frame = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.frame = .zero
-      }
-    case let .all(value):
-      base.frame = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.frame = .zero
-    }
+    base.frame = rectangle.cgRect
     return self
   }
   
+  /// Helper of `frame` property setter.
   @discardableResult
   func frame(_ rectangle: Rectangle<Double>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.frame = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.frame = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.frame = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.frame = .init(origin: .init(x: value, y: value),
-                           size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.frame = .init(origin: .init(x: originValue, y: originValue),
-                           size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.frame = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.frame = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.frame = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.frame = .zero
-      }
-    case let .all(value):
-      base.frame = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.frame = .zero
-    }
+    base.frame = rectangle.cgRect
     return self
   }
   
+  /// Helper of `frame` property setter.
   @discardableResult
   func frame(_ rectangle: Rectangle<CGFloat>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.frame = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.frame = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.frame = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.frame = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.frame = .init(origin: .init(x: value, y: value),
-                           size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.frame = .init(origin: .init(x: originValue, y: originValue),
-                           size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.frame = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.frame = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.frame = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.frame = .zero
-      }
-    case let .all(value):
-      base.frame = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.frame = .zero
-    }
+    base.frame = rectangle.cgRect
     return self
   }
   
+  /// Helper of `bounds` property setter.
   @discardableResult
   func bounds(_ rectangle: Rectangle<Int>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.bounds = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.bounds = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.bounds = .init(origin: .init(x: value, y: value),
-                            size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.bounds = .init(origin: .init(x: originValue, y: originValue),
-                            size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.bounds = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.bounds = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.bounds = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.bounds = .zero
-      }
-    case let .all(value):
-      base.bounds = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.bounds = .zero
-    }
+    base.bounds = rectangle.cgRect
     return self
   }
   
+  /// Helper of `bounds` property setter.
   @discardableResult
   func bounds(_ rectangle: Rectangle<Double>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.bounds = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.bounds = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.bounds = .init(origin: .init(x: value, y: value),
-                            size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.bounds = .init(origin: .init(x: originValue, y: originValue),
-                            size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.bounds = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.bounds = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.bounds = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.bounds = .zero
-      }
-    case let .all(value):
-      base.bounds = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.bounds = .zero
-    }
+    base.bounds = rectangle.cgRect
     return self
   }
   
+  /// Helper of `bounds` property setter.
   @discardableResult
   func bounds(_ rectangle: Rectangle<CGFloat>) -> Builder {
-    switch rectangle {
-    case let .each(x, y, width, height):
-      base.bounds = .init(x: x, y: y, width: width, height: height)
-    case let .grouped(origin, size):
-      switch (origin, size) {
-      case let (.each(x, y), .each(width, height)):
-        base.bounds = .init(x: x, y: y, width: width, height: height)
-      case let (.each(x, y), .all(value)):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .init(width: value, height: value))
-      case let (.each(x, y), .zero):
-        base.bounds = .init(origin: .init(x: x, y: y), size: .zero)
-      case let (.all(value), .each(width, height)):
-        base.bounds = .init(origin: .init(x: value, y: value),
-                            size: .init(width: width, height: height))
-      case let (.all(originValue), .all(sizeValue)):
-        base.bounds = .init(origin: .init(x: originValue, y: originValue),
-                            size: .init(width: sizeValue, height: sizeValue))
-      case let (.all(value), .zero):
-        base.bounds = .init(origin: .init(x: value, y: value), size: .zero)
-      case let (.zero, .each(width, height)):
-        base.bounds = .init(origin: .zero, size: .init(width: width, height: height))
-      case let (.zero, .all(value)):
-        base.bounds = .init(origin: .zero, size: .init(width: value, height: value))
-      case (.zero, .zero):
-        base.bounds = .zero
-      }
-    case let .all(value):
-      base.bounds = .init(x: value, y: value, width: value, height: value)
-    case .zero:
-      base.bounds = .zero
-    }
+    base.bounds = rectangle.cgRect
     return self
   }
   
+  /// Helper of `center` property setter.
   @discardableResult
   func center(_ point: Point<Int>) -> Builder {
-    switch point {
-    case let .each(x, y):
-      base.center = .init(x: x, y: y)
-    case let .all(value):
-      base.center = .init(x: value, y: value)
-    case .zero:
-      base.center = .zero
-    }
+    base.center = point.cgPoint
     return self
   }
   
+  /// Helper of `center` property setter.
   @discardableResult
   func center(_ point: Point<Double>) -> Builder {
-    switch point {
-    case let .each(x, y):
-      base.center = .init(x: x, y: y)
-    case let .all(value):
-      base.center = .init(x: value, y: value)
-    case .zero:
-      base.center = .zero
-    }
+    base.center = point.cgPoint
     return self
   }
   
+  /// Helper of `center` property setter.
   @discardableResult
   func center(_ point: Point<CGFloat>) -> Builder {
-    switch point {
-    case let .each(x, y):
-      base.center = .init(x: x, y: y)
-    case let .all(value):
-      base.center = .init(x: value, y: value)
-    case .zero:
-      base.center = .zero
-    }
+    base.center = point.cgPoint
     return self
   }
   
+  /// Helper of `transform` property setter.
   @discardableResult
   func transform(_ transform: ViewBuilder.Transform) -> Builder {
     switch transform {
@@ -360,78 +111,366 @@ public extension Builder where Base: UIView {
     return self
   }
   
-  // MARK: - Managing the View Hierarchy
-  
+  /// Helper of `addSubview(_:)` method.
+  ///
+  /// By using `constraintMaker` closure depends on SnapKit,
+  /// It guarantees that constraints are set after the view is added.
   @discardableResult
-  func subview(of view: UIView, constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+  func subview(of view: UIView, constraintMaker: (ConstraintMaker) -> Void) -> Builder {
     view.addSubview(base)
-    if let maker = constraintMaker {
-      base.snp.makeConstraints(maker)
-    }
+    base.snp.makeConstraints(constraintMaker)
     return self
   }
   
+  /// Helper of `insertSubview(_:at:)` method.
+  ///
+  /// By using `constraintMaker` closure depends on SnapKit,
+  /// It guarantees that constraints are set after the view is added.
   @discardableResult
   func subview(of view: UIView,
                at index: Int,
-               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+               constraintMaker: (ConstraintMaker) -> Void) -> Builder {
     view.insertSubview(base, at: index)
-    if let maker = constraintMaker {
-      base.snp.makeConstraints(maker)
-    }
+    base.snp.makeConstraints(constraintMaker)
     return self
   }
   
+  /// Helper of `insertSubview(_:aboveSubview:)` method.
+  ///
+  /// By using `constraintMaker` closure depends on SnapKit,
+  /// It guarantees that constraints are set after the view is added.
   @discardableResult
   func subview(of view: UIView,
                above aboveView: UIView,
-               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+               constraintMaker: (ConstraintMaker) -> Void) -> Builder {
     view.insertSubview(base, aboveSubview: aboveView)
-    if let maker = constraintMaker {
-      base.snp.makeConstraints(maker)
-    }
+    base.snp.makeConstraints(constraintMaker)
     return self
   }
   
+  /// Helper of `insertSubview(_:belowSubview:)` method.
+  ///
+  /// By using `constraintMaker` closure depends on SnapKit,
+  /// It guarantees that constraints are set after the view is added.
   @discardableResult
   func subview(of view: UIView,
                below belowView: UIView,
-               constraintMaker: ((ConstraintMaker) -> Void)? = nil) -> Builder {
+               constraintMaker: (ConstraintMaker) -> Void) -> Builder {
     view.insertSubview(base, belowSubview: belowView)
-    if let maker = constraintMaker {
-      base.snp.makeConstraints(maker)
-    }
+    base.snp.makeConstraints(constraintMaker)
     return self
   }
   
-  // MARK: - Managing the View's Constraints
-  
+  /// Helper of `constraints` property setter.
+  ///
+  /// It uses `makeConstraints(_:)` method of SnapKit.
   @discardableResult
   func constraints(_ constraintMaker: (ConstraintMaker) -> Void) -> Builder {
     base.snp.makeConstraints(constraintMaker)
     return self
   }
+
+  /// Helper of `addGestureRecognizer(_:)` method.
+  ///
+  /// - `tap` case for `UITapGestureRecognizer`.
+  /// - `pinch` case for `UIPinchGestureRecognizer`.
+  /// - `rotation` case for `UIRotationGestureRecognizer`.
+  /// - `swipe` case for `UISwipeGestureRecognizer`.
+  /// - `pan` case for `UIPanGestureRecognizer`.
+  /// - `screenEdgePan` case for `UIScreenEdgePanGestureRecognizer`.
+  /// - `longPress` case for `UILongPressGestureRecognizer`.
+  @discardableResult
+  func gestureRecognizer(_ gestureRecognizer: ViewBuilder.GestureRecognizer,
+                         target: Any?,
+                         action: Selector) -> Builder {
+    switch gestureRecognizer {
+    case .tap:
+      base.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
+    case .pinch:
+      base.addGestureRecognizer(UIPinchGestureRecognizer(target: target, action: action))
+    case .rotation:
+      base.addGestureRecognizer(UIRotationGestureRecognizer(target: target, action: action))
+    case .swipe:
+      base.addGestureRecognizer(UISwipeGestureRecognizer(target: target, action: action))
+    case .pan:
+      base.addGestureRecognizer(UIPanGestureRecognizer(target: target, action: action))
+    case .screenEdgePan:
+      base.addGestureRecognizer(UIScreenEdgePanGestureRecognizer(target: target, action: action))
+    case .longPress:
+      base.addGestureRecognizer(UILongPressGestureRecognizer(target: target, action: action))
+    }
+    return self
+  }
+  
+  // MARK: - Configuring a View's Visual Appearance
+  
+  /// Wrapper of `backgroundColor` property setter.
+  @discardableResult
+  func backgroundColor(_ color: UIColor?) -> Builder {
+    base.backgroundColor = color
+    return self
+  }
+  
+  /// Wrapper of `isHidden` property setter.
+  @discardableResult
+  func isHidden(_ flag: Bool) -> Builder {
+    base.isHidden = flag
+    return self
+  }
+  
+  /// Wrapper of `alpha` property setter.
+  @discardableResult
+  func alpha(_ alpha: CGFloat) -> Builder {
+    base.alpha = alpha
+    return self
+  }
+  
+  /// Wrapper of `isOpaque` property setter.
+  @discardableResult
+  func isOpaque(_ flag: Bool) -> Builder {
+    base.isOpaque = flag
+    return self
+  }
+  
+  /// Wrapper of `tintColor` property setter.
+  @discardableResult
+  func tintColor(_ color: UIColor!) -> Builder {
+    base.tintColor = color
+    return self
+  }
+  
+  /// Wrapper of `tintAdjustmentMode` property setter.
+  @discardableResult
+  func tintAdjustmentMode(_ mode: UIView.TintAdjustmentMode) -> Builder {
+    base.tintAdjustmentMode = mode
+    return self
+  }
+  
+  /// Wrapper of `clipsToBounds` property setter.
+  @discardableResult
+  func clipsToBounds(_ flag: Bool) -> Builder {
+    base.clipsToBounds = flag
+    return self
+  }
+  
+  /// Wrapper of `clearsContextBeforeDrawing` property setter.
+  @discardableResult
+  func clearsContextBeforeDrawing(_ flag: Bool) -> Builder {
+    base.clearsContextBeforeDrawing = flag
+    return self
+  }
+  
+  /// Wrapper of `mask` property setter.
+  @discardableResult
+  func mask(_ mask: UIView?) -> Builder {
+    base.mask = mask
+    return self
+  }
+  
+  // MARK: - Configuring the Event-Related Behavior
+  
+  /// Wrapper of `isUserInteractionEnabled` property setter.
+  @discardableResult
+  func isUserInteractionEnabled(_ flag: Bool) -> Builder {
+    base.isUserInteractionEnabled = flag
+    return self
+  }
+  
+  /// Wrapper of `isMultipleTouchEnabled` property setter.
+  @discardableResult
+  func isMultipleTouchEnabled(_ flag: Bool) -> Builder {
+    base.isMultipleTouchEnabled = flag
+    return self
+  }
+  
+  /// Wrapper of `isExclusiveTouch` property setter.
+  @discardableResult
+  func isExclusiveTouch(_ flag: Bool) -> Builder {
+    base.isExclusiveTouch = flag
+    return self
+  }
+  
+  // MARK: - Configuring the Bounds and Frame Rectangles
+  
+  /// Wrapper of `frame` property setter.
+  @discardableResult
+  func frame(_ frame: CGRect) -> Builder {
+    base.frame = frame
+    return self
+  }
+  
+  /// Wrapper of `bounds` property setter.
+  @discardableResult
+  func bounds(_ bounds: CGRect) -> Builder {
+    base.bounds = bounds
+    return self
+  }
+  
+  /// Wrapper of `center` property setter.
+  @discardableResult
+  func center(_ center: CGPoint) -> Builder {
+    base.center = center
+    return self
+  }
+  
+  /// Wrapper of `transform` property setter.
+  @discardableResult
+  func transform(_ transform: CGAffineTransform) -> Builder {
+    base.transform = transform
+    return self
+  }
+  
+  // MARK: - Managing the View Hierarchy
+  
+  /// Wrapper of `addSubview(_:)` method.
+  @discardableResult
+  func subview(of view: UIView) -> Builder {
+    view.addSubview(base)
+    return self
+  }
+  
+  /// Wrapper of `insertSubview(_:at:)` method.
+  @discardableResult
+  func subview(of view: UIView, at index: Int) -> Builder {
+    view.insertSubview(base, at: index)
+    return self
+  }
+  
+  /// Wrapper of `insertSubview(_:aboveSubview:)` method.
+  @discardableResult
+  func subview(of view: UIView, aboveSubview aboveView: UIView) -> Builder {
+    view.insertSubview(base, aboveSubview: aboveView)
+    return self
+  }
+  
+  /// Wrapper of `insertSubview(_:belowSubview:)` method.
+  @discardableResult
+  func subview(of view: UIView, belowSubview belowView: UIView) -> Builder {
+    view.insertSubview(base, belowSubview: belowView)
+    return self
+  }
+
+  // MARK: - Managing the View's Constraints
+  
+  /// Wrapper of `addConstraint(_:)` method.
+  @discardableResult
+  func constraint(_ constraint: NSLayoutConstraint) -> Builder {
+    base.addConstraint(constraint)
+    return self
+  }
+  
+  /// Wrapper of `addContraints(_:)` method.
+  @discardableResult
+  func constraints(_ constraints: [NSLayoutConstraint]) -> Builder {
+    base.addConstraints(constraints)
+    return self
+  }
+  
+  // MARK: - Configuring the Resizing Behavior
+  
+  /// Wrapper of `contentMode` property setter.
+  @discardableResult
+  func contentMode(_ mode: UIView.ContentMode) -> Builder {
+    base.contentMode = mode
+    return self
+  }
+  
+  /// Wrapper of `autoresizesSubviews` property setter.
+  @discardableResult
+  func autoresizesSubviews(_ flag: Bool) -> Builder {
+    base.autoresizesSubviews = flag
+    return self
+  }
+  
+  /// Wrapper of `autoresizingMask` property setter.
+  @discardableResult
+  func autoresizingMask(_ mask: UIView.AutoresizingMask) -> Builder {
+    base.autoresizingMask = mask
+    return self
+  }
+  
+  /// MARK: - Laying out Subviews
+  
+  /// Wrapper of `translatesAutoresizingMaskIntoConstraints` property setter.
+  
+  @discardableResult
+  func translatesAutoresizingMaskIntoConstraints(_ flag: Bool) -> Builder {
+    base.translatesAutoresizingMaskIntoConstraints = flag
+    return self
+  }
+  
+  // MARK: - Managing the User Interface Direction
+  
+  /// Wrapper of `semanticContentAttributes` property setter.
+  @discardableResult
+  func semanticContentAttributes(_ attribute: UISemanticContentAttribute) -> Builder {
+    base.semanticContentAttribute = attribute
+    return self
+  }
+  
+  /// MARK: - Adding and Removing Interactions
+  
+  /// Wrapper of `addInteraction(_:)` method.
+  @discardableResult
+  func interaction(_ interaction: UIInteraction) -> Builder {
+    base.addInteraction(interaction)
+    return self
+  }
+  
+  /// Wrapper of `interactions` property setter.
+  @discardableResult
+  func interactions(_ interactions: [UIInteraction]) -> Builder {
+    base.interactions = interactions
+    return self
+  }
+  
+  // MARK: - Drawing and Updating the View
+  
+  /// Wrapper of `contentScaleFactor` property setter.
+  @discardableResult
+  func contentScaleFactor(_ factor: CGFloat) -> Builder {
+    base.contentScaleFactor = factor
+    return self
+  }
   
   // MARK: - Managing Gesture Recognizers
   
+  /// Wrapper of `addGestureRecognizer(_:)` method.
   @discardableResult
-  func gestureRecognizer(_ gestureRecognizer: ViewBuilder.GestureRecognizer) -> Builder {
-    switch gestureRecognizer {
-    case let .tap(target, action):
-      base.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
-    case let .pinch(target, action):
-      base.addGestureRecognizer(UIPinchGestureRecognizer(target: target, action: action))
-    case let .rotation(target, action):
-      base.addGestureRecognizer(UIRotationGestureRecognizer(target: target, action: action))
-    case let .swipe(target, action):
-      base.addGestureRecognizer(UISwipeGestureRecognizer(target: target, action: action))
-    case let .pan(target, action):
-      base.addGestureRecognizer(UIPanGestureRecognizer(target: target, action: action))
-    case let .screenEdgePan(target, action):
-      base.addGestureRecognizer(UIScreenEdgePanGestureRecognizer(target: target, action: action))
-    case let .longPress(target, action):
-      base.addGestureRecognizer(UILongPressGestureRecognizer(target: target, action: action))
-    }
+  func gestureRecognizer(_ recognizer: UIGestureRecognizer) -> Builder {
+    base.addGestureRecognizer(recognizer)
+    return self
+  }
+  
+  /// Wrapper of `gestureRecognizers` property setter.
+  @discardableResult
+  func gestureRecognizers(_ recognizers: [UIGestureRecognizer]) -> Builder {
+    base.gestureRecognizers = recognizers
+    return self
+  }
+  
+  // MARK: - Using Motion Effects
+  
+  /// Wrapper of `addMotionEffect(_:)` method.
+  @discardableResult
+  func motionEffect(_ effect: UIMotionEffect) -> Builder {
+    base.addMotionEffect(effect)
+    return self
+  }
+  
+  /// Wrapper of `motionEffects` property setter.
+  @discardableResult
+  func motionEffects(_ effects: [UIMotionEffect]) -> Builder {
+    base.motionEffects = effects
+    return self
+  }
+  
+  // MARK: - Preserving and Restoring State
+  
+  /// Wrapper of `restorationIdentifier` property setter.
+  @discardableResult
+  func restorationIdentifier(_ identifier: String?) -> Builder {
+    base.restorationIdentifier = identifier
     return self
   }
   
@@ -440,6 +479,15 @@ public extension Builder where Base: UIView {
   @discardableResult
   func tag(_ tag: Int) -> Builder {
     base.tag = tag
+    return self
+  }
+  
+  // MARK: - Modifying the Accessibility Behavior
+  
+  /// Wrapper of `accessibilityIgnoresInvertColors` property setter.
+  @discardableResult
+  func accessibilityIgnoresInvertColors(_ flag: Bool) -> Builder {
+    base.accessibilityIgnoresInvertColors = flag
     return self
   }
 }
