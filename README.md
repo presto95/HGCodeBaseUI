@@ -94,9 +94,9 @@ By using helpers, you can replace the code above with the code below.
 ```swift
 let label = UILabel().builder
   .text(.plain("Hello World"))
-	.textStyle(.color(.blue))
-	.textStyle(.font(.systemFont(ofSize: 15)))
-	.numberOfLines(1)
+  .textStyle(.color(.blue))
+  .textStyle(.font(.systemFont(ofSize: 15)))
+  .numberOfLines(1)
   .lineBreakMode(.byWordWrapping)
   .build()
 ```
@@ -107,9 +107,9 @@ You can also use builders after the object is initialized.
 let label = UILabel()
 label.builder
   .text(.plain("Hello World"))
-	.textStyle(.color(.blue))
-	.textStyle(.font(.systemFont(ofSize: 15)))
-	.numberOfLines(1)
+  .textStyle(.color(.blue))
+  .textStyle(.font(.systemFont(ofSize: 15)))
+  .numberOfLines(1)
   .lineBreakMode(.byWordWrapping)
 ```
 
