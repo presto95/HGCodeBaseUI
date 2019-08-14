@@ -1,14 +1,12 @@
-**🚧 Under Development 🚧**
-
 # ViewBuilderSwift
 
-**View Setting with View-Independent Object and Builder**
+![Cocoapods](https://img.shields.io/cocoapods/v/ViewBuilderSwift) ![Cocoapods platforms](https://img.shields.io/cocoapods/p/ViewBuilderSwift) ![Language](https://img.shields.io/badge/swift-%3E%3D4.2-orange)  ![License](https://img.shields.io/cocoapods/l/ViewBuilderSwift)
 
-It will help to write UI without Interface Builder.
+This will make it easier for you to **write UI without Interface Builder** by taking advantage of two features:
 
-## View-Independent Object
+## Features
 
-**Replace the role of Interface Builder with a single source code file**
+### Design for Writing UI with Code
 
 ```swift
 protocol UI
@@ -20,11 +18,11 @@ protocol UI
 protocol UIOwner
 ```
 
-`UIOwner` protocol represents the type that owns the `UI` .
+`UIOwner` protocol represents the type that owns the `UI`.
 
-By default, `UIViewController` and `UIView` conforms `UIOwner` .
+By default, `UIViewController` and `UIView` conforms `UIOwner`.
 
-### Example
+#### Example
 
 ```swift
 final class SomeViewController: UIViewController {
@@ -37,110 +35,109 @@ final class SomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do something
+    // Do something with `viewUI.label`...
   }
 }
 ```
 
 ```swift
 final class SomeUI: UI {
- 
+  
+  // Recommended to set `owner` as an unowned variable.
   unowned var owner: SomeViewController
   
-  var searchBar = UISearchBar()
-  
-  var tableView = UITableView()
+  // Recommended to define UI components using `lazy` keyword.
+  lazy var label = UILabel()
   
   init(owner: SomeViewController) {
     self.owner = owner
     
     owner.view = .init()
     view.backgroundColor = .white
-
-    // Configuring search bar
-    searchBar.builder
-      .delegate(owner)
-      .placeholder("Username")
-      .style(.searchBar(.minimal))
     
-    // Configuring table view
-    tableView.builder
-      .register(.cell(.nib(SomeCell.self, reuseIdentifier: "cell")))
-      .keyboardDismissMode(.onDrag)
-      .tableSectionView(.footer(someView))
+    // Configuring label...
   }
 }
 ```
 
-## Builder
+**Note** | You must write `owner.view = .init()` at top of  `init(owner: Owner)` when you initialize UI at `loadView()` method. Otherwise the app will crash because any view controller's `view` property is assigned after `loadView()` method is called.
 
-You can set properties of UI components by using builder pattern.
+### Property Setting with Method Chaining
 
-- Enters to a builder by using `builder` property of UI components.
-- At the end of the method chaining of any builder, you should specify `build()` method to retrieve the UI component from the builder.
-
-### Example
-
-- Makes a label
+This code block...
 
 ```swift
-// Sets some properties to use `builder`.
+let label = UILabel()
+label.text = "Hello World!"
+label.textColor = .blue
+label.font = .systemFont(ofSize: 15)
+label.numberOfLines = 1
+label.lineBreakMode = .byWordWrapping
+```
+
+can be substituted by the following code block.
+
+```swift
+let label = UILabel().builder
+  .text("Hello World!")
+  .textColor(.blue)
+  .font(.systemFont(ofSize: 15))
+  .numberOfLines(1)
+  .lineBreakMode(.byWordWrapping)
+  .build()
+```
+
+You can use a wrapper for an existing API, but you can also use several helper methods.
+
+By using helpers, you can replace the code above with the code below.
+
+```swift
+let label = UILabel().builder
+  .text(.plain("Hello World"))
+	.textStyle(.color(.blue))
+	.textStyle(.font(.systemFont(ofSize: 15)))
+	.numberOfLines(1)
+  .lineBreakMode(.byWordWrapping)
+  .build()
+```
+
+You can also use builders after the object is initialized.
+
+```swift
 let label = UILabel()
 label.builder
-  .text(.plain("Hello World!"))
-  .textColor(.blue)
-  .font(.systemFont(ofSize: 15))
-
-// Assigns the result to some variable.
-// You should call `build` method to retrieve the result of builder.
-let label = UILabel().builder
-  .text(.plain("Hello World!"))
-  .textColor(.blue)
-  .font(.systemFont(ofSize: 15))
-  .subview(of: someView)
-  .constraints { $0.center.equalToSuperview() }
-  .build()
-
-// You can also build without assigning the result to some variable.
-UILabel().builder
-  .text(.attributed("Hello World!", attributes: [.font: UIFont.systemFont(ofSize: 15)]))
-  .numberOfLines(0)
-  .textAlignment(.center)
+  .text(.plain("Hello World"))
+	.textStyle(.color(.blue))
+	.textStyle(.font(.systemFont(ofSize: 15)))
+	.numberOfLines(1)
   .lineBreakMode(.byWordWrapping)
-  .shadow(.each(color: .black, offset: .all(4)))
-  // You can also set constraints by using the closure of `subview` family methods.
-  // It guarantees that constraints are set after the `self` is added as the subview.
-  .subview(of: someView) { $0.center.equalToSuperview() }
 ```
 
-- Makes a button
+In addition to text settings, it also provides helper methods for setting coordinates(`CGPoint`), size(`CGSize`), rectangle(`CGRect`), edge insets(`UIEdgeInsets`), and more.
 
-```swift
-let button = UIButton().builder
-  .title(.plain("Hello World!"))
-  .contentEdgeInsets(.symmetric(horizontal: 8, vertical: 4))
-  .build()
+## Dependencies
+
+- [SnapKit](https://github.com/SnapKit/SnapKit) >= 5.0.0
+
+## Requrements
+
+- Swift 4.2 / iOS
+
+## Installation
+
+ViewBuilderSwift supports Cocoapods only.
+
+### Podfile
+
+```yaml
+pod 'ViewBuilderSwift'
 ```
 
-- Makes a table view
-
-```swift
-let tableView = UITableView().builder
-  .delegate(self)
-  .dataSource(self)
-  .register(.cell(.nib(someNib, reuseIdentifier: "cell")))
-  .register(.headerFooter(.class(someClass, reuseIdentifier: "headerFooter")))
-  .height(.row(80))
-  .height(.sectionHeaderFooter(8))
-  .separator(.style(style))
-  .allowsSelection(.each(single: true, multiple: true))
-  .allowsSelectionDuringEditing(.single(true))
-  .allowsSelectionDuringEditing(.multiple(false))
-  .build()
+```sh
+pod install
 ```
 
-## Misc.
+## License
 
-### Dependent Library
+ViewBuilderSwift is under MIT license. See the [LICENSE](https://github.com/presto95/ViewBuilderSwift/blob/master/LICENSE) for more info.
 
-- SnapKit

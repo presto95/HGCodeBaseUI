@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ViewBuilderSwift"
-  spec.version      = "0.1.0-beta"
+  spec.version      = "0.2.0"
   spec.summary      = "View Setting with View-Independent Object & Builder"
 
   # This description is used to generate tags and improve search results.
