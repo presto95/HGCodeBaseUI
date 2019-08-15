@@ -8,10 +8,12 @@
 
 import UIKit
 
+import Then
+
 /// Defines a protocol that replaces the responsibility of Interface Builder.
 ///
 /// You should make an object responsible for being UI of another object conforms to this protocol.
-public protocol UI {
+public protocol UI: Then {
   
   associatedtype Owner: UIOwner
   
