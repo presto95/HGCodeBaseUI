@@ -23,7 +23,7 @@ protocol UIOwner
 ```swift
 final class SomeViewController: UIViewController, UIOwner {
   
-  private var viewUI: SomeUI!
+  var viewUI: SomeUI!
   
   override func loadView() {
     viewUI = .init(owner: self)
