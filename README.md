@@ -1,31 +1,27 @@
-# ViewBuilderSwift
+# HGCodeBaseUI
 
-![Cocoapods](https://img.shields.io/cocoapods/v/ViewBuilderSwift) ![Cocoapods platforms](https://img.shields.io/cocoapods/p/ViewBuilderSwift) ![Language](https://img.shields.io/badge/swift-%3E%3D4.2-orange)  ![License](https://img.shields.io/cocoapods/l/ViewBuilderSwift)
+![Cocoapods](https://img.shields.io/cocoapods/v/HGCodeBaseUI) ![Cocoapods platforms](https://img.shields.io/cocoapods/p/HGCodeBaseUI) ![Language](https://img.shields.io/badge/swift-%3E%3D4-orange) ![Cocoapods](https://img.shields.io/cocoapods/l/HGCodeBaseUI)
 
-This will make it easier for you to **write UI without Interface Builder** by taking advantage of two features:
+This suggests a design for writing **UI without using Interface Builder**.
 
-## Features
-
-### Design for Writing UI with Code
+## Design for Writing UI with Code 
 
 ```swift
 protocol UI
 ```
 
-`UI` protocol is conformed by a class that replaces the role of the Interface Builder.
+`UI` protocol represents that any class conforms to this replaces the reponsibility of Interface Builder.
 
 ```swift
 protocol UIOwner
 ```
 
-`UIOwner` protocol represents the type that owns the `UI`.
+`UIOwner` protocol represents that any class conforms this indicates the object that can own an object that conforms to `UI` protocol.
 
-By default, `UIViewController` and `UIView` conforms `UIOwner`.
-
-#### Example
+### Example
 
 ```swift
-final class SomeViewController: UIViewController {
+final class SomeViewController: UIViewController, UIOwner {
   
   private var viewUI: SomeUI!
   
@@ -43,7 +39,7 @@ final class SomeViewController: UIViewController {
 ```swift
 final class SomeUI: UI {
   
-  // Recommended to set `owner` as an unowned variable.
+  // It is recommended to declare it as `unowned`.
   unowned var owner: SomeViewController
   
   // Recommended to define UI components using `lazy` keyword.
@@ -55,89 +51,108 @@ final class SomeUI: UI {
     owner.view = .init()
     view.backgroundColor = .white
     
-    // Configuring label...
+    // By using `do` method of `Then`, we can configure the label like this...
+    label.do {
+      $0.text = "Hello World!"
+      $0.textColor = .blue
+      $0.font = .systemFont(ofSize: 15)
+      $0.numberOfLines = 1
+      $0.lineBreakMode = .byWordWrapping
+    }
   }
 }
 ```
 
-**Note** | You must write `owner.view = .init()` at top of  `init(owner: Owner)` when you initialize UI at `loadView()` method. Otherwise the app will crash because any view controller's `view` property is assigned after `loadView()` method is called.
+## Wrapper for frequently used things
 
-### Property Setting with Method Chaining
-
-This code block...
+- `UIButton` `.touchUpInside` control event
 
 ```swift
-let label = UILabel()
-label.text = "Hello World!"
-label.textColor = .blue
-label.font = .systemFont(ofSize: 15)
-label.numberOfLines = 1
-label.lineBreakMode = .byWordWrapping
+// Same as `addTarget(self, action: #selector(buttonDidTap(_:), for: .touchUpInside)`
+button.tapped(onTarget: self, action: #selector(buttonDidTap(_:)))
 ```
 
-can be substituted by the following code block.
+- `UIView` gesture recognizers
 
 ```swift
-let label = UILabel().builder
-  .text("Hello World!")
-  .textColor(.blue)
-  .font(.systemFont(ofSize: 15))
-  .numberOfLines(1)
-  .lineBreakMode(.byWordWrapping)
-  .build()
+// Same as `UITapGestureRecognizer(target: self, action: #selector(viewDidTap(_:))`
+view.addGestureRecognizer(.tap, onTarget: self, action: #selector(viewDidTap(_:)))
 ```
 
-You can use a wrapper for an existing API, but you can also use several helper methods.
-
-By using helpers, you can replace the code above with the code below.
+- `UISlider` `.valueChanged` control event
 
 ```swift
-let label = UILabel().builder
-  .text(.plain("Hello World"))
-  .textStyle(.color(.blue))
-  .textStyle(.font(.systemFont(ofSize: 15)))
-  .numberOfLines(1)
-  .lineBreakMode(.byWordWrapping)
-  .build()
+// Same as `addTarget(self, action: #selector(sliderValueChanged(_:), for: .valueChanged)`
+slider.valueChanged(onTarget: self, action: #selector(sliderValueChanged(_:)))
 ```
 
-You can also use builders after the object is initialized.
+- `UITextField` `.editingChanged` control event
 
 ```swift
-let label = UILabel()
-label.builder
-  .text(.plain("Hello World"))
-  .textStyle(.color(.blue))
-  .textStyle(.font(.systemFont(ofSize: 15)))
-  .numberOfLines(1)
-  .lineBreakMode(.byWordWrapping)
+// Same as `addtarget(self, action: #selector(textFieldTextDidChange(_:), for: .editingChanged)`
+textField.textChanged(onTarget: self, action: #selector(textFieldTextDidChange(_:)))
 ```
 
-In addition to text settings, it also provides helper methods for setting coordinates(`CGPoint`), size(`CGSize`), rectangle(`CGRect`), edge insets(`UIEdgeInsets`), and more.
+- `UIEdgeInsets`
 
-## Dependencies
+```swift
+// Same as `UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)`
+textView.textContainerInset = .all(4)
 
-- [SnapKit](https://github.com/SnapKit/SnapKit) >= 5.0.0
+// Same as `UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 4)`
+someButton.titleEdgeInsets = .symmetric(horizontal: 8, vertical: 4)
 
-## Requrements
+// Same as `UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 0)`
+tableView.separatorInset = .left(4)
+```
 
-- Swift 4.2 / iOS
+- `CGRect` / `CGSize` / `CGPoint`
+
+```swift
+// Same as `CGRect(x: 100, y: 100, width: 100, height: 100)`
+label.frame = .all(100)
+
+// Same as `CGSize(width: 100, height: 100)`
+label.frame.size = .all(100)
+
+// Same as `CGPoint(width: 100, height: 100)`
+label.frame.origin = .all(100)
+```
 
 ## Installation
 
-ViewBuilderSwift supports Cocoapods only.
+HGCodeBaseUI supports **Cocoapods** only.
 
-### Podfile
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
-```yaml
-pod 'ViewBuilderSwift'
+```bash
+$ gem install cocoapods
 ```
 
-```sh
-pod install
+To integrate HGCodeBaseUI into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+target '<Your Target Name>' do
+  pod 'HGCodeBaseUI'
+end
 ```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+## Requirements
+
+- Swift 4
+- iOS 10
+
+## Dependencies
+
+- [SnapKit](https://github.com/SnapKit/SnapKit) ~> 5.0.0
+- [Then](https://github.com/devxoul/Then)
 
 ## License
 
-ViewBuilderSwift is under MIT license. See the [LICENSE](https://github.com/presto95/ViewBuilderSwift/blob/master/LICENSE) for more info.
-
+HGCodeBaseUI is under MIT license. See the [LICENSE](https://github.com/presto95/ViewBuilderSwift/blob/master/LICENSE) for more info.
