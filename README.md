@@ -20,12 +20,15 @@ protocol UIOwner
 
 ### Example
 
+#### with UIViewController - UI
+
 ```swift
 final class SomeViewController: UIViewController, UIOwner {
   
   var viewUI: SomeUI!
   
   override func loadView() {
+    // Instantiates `viewUI` at `loadView()`.
     viewUI = .init(owner: self)
   }
   
@@ -42,16 +45,61 @@ final class SomeUI: UI {
   // It is recommended to declare it as `unowned`.
   unowned var owner: SomeViewController
   
-  // Recommended to define UI components using `lazy` keyword.
+  // It is recommended to declare any UI component variables using `lazy` keyword.
   lazy var label = UILabel()
   
   init(owner: SomeViewController) {
     self.owner = owner
     
+    // **Important** 
+    // You must write the following line because `owner.view` isn't made yet.
     owner.view = .init()
+    // You should write the following line 
+    // because the default value of `UIView.backgroundColor` is `nil`, 
+    // which results in a transparent background color.
     view.backgroundColor = .white
     
     // By using `do` method of `Then`, we can configure the label like this...
+    label.do {
+      $0.text = "Hello World!"
+      $0.textColor = .blue
+      $0.font = .systemFont(ofSize: 15)
+      $0.numberOfLines = 1
+      $0.lineBreakMode = .byWordWrapping
+    }
+  }
+}
+```
+
+#### with UIView - UI
+
+```swift
+final class SomeView: UIView, UIOwner {
+  
+  var viewUI: SomeUI!
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    // Instantiates `viewUI` at any initializer.
+    viewUI = .init(owner: self)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+```
+
+```swift
+final class SomeUI: UI {
+  
+  unowned var owner: SomeView
+  
+  lazy var label = UILabel()
+  
+  init(owner: SomeView) {
+    self.owner = owner
+    
     label.do {
       $0.text = "Hello World!"
       $0.textColor = .blue

@@ -37,11 +37,6 @@ public protocol UI: Then {
 public extension UI where Owner: UIViewController {
   
   var view: UIView {
-    if owner.view == nil {
-      let rootView = UIView()
-      rootView.backgroundColor = .white
-      owner.view = rootView
-    }
     return owner.view
   }
 }
