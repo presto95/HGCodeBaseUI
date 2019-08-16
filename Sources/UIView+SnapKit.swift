@@ -12,6 +12,11 @@ import SnapKit
 
 public extension UIView {
   
+  /// Applies constraints using `constraintMaker` closure.
+  func constraints(constraintMaker: (ConstraintMaker) -> Void) {
+    snp.makeConstraints(constraintMaker)
+  }
+  
   /// Becomes a last subview of `view`'s list of subviews.
   func becomeSubview(of view: UIView) {
     view.addSubview(self)

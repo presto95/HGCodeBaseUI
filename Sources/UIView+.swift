@@ -10,6 +10,11 @@ import UIKit
 
 public extension UIView {
   
+  /// Adds `views` to the end of the receiver’s list of subviews.
+  func addSubviews(_ views: UIView...) {
+    views.forEach { addSubview($0) }
+  }
+  
   /// Attaches a specified gesture `recognizer` to the view
   /// with a `target` and an `action` selector.
   func addGestureRecognizer(_ recognizer: GestureRecognizer,
