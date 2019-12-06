@@ -9,19 +9,18 @@
 import UIKit
 
 public extension CGRect {
-  
   /// Creates a rectangle with the same coordinate and dimension value
   /// specified as the integer value.
   static func all(_ value: Int) -> CGRect {
     return .init(x: value, y: value, width: value, height: value)
   }
-  
+
   /// Creates a rectangle with the same coordinate and dimension value
   /// specified as the floating-point value.
   static func all(_ value: Double) -> CGRect {
     return .init(x: value, y: value, width: value, height: value)
   }
-  
+
   /// Creates a rectangle with the same coordinate and dimension value
   /// specified as the `CGFloat` value.
   static func all(_ value: CGFloat) -> CGRect {

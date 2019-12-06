@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIButton {
-  
   /// Associates a `target` object and `action` method with the control
   /// in case of `touchUpInside` control event.
   func tapped(onTarget target: Any?, action: Selector) {

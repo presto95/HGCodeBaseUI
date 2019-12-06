@@ -9,12 +9,11 @@
 import UIKit
 
 public extension UIView {
-  
   /// Adds `views` to the end of the receiver’s list of subviews.
   func addSubviews(_ views: UIView...) {
     views.forEach { addSubview($0) }
   }
-  
+
   /// Attaches a specified gesture `recognizer` to the view
   /// with a `target` and an `action` selector.
   func addGestureRecognizer(_ recognizer: GestureRecognizer,
@@ -41,25 +40,24 @@ public extension UIView {
 
 /// Defines gesture recognizers.
 public enum GestureRecognizer {
-  
   /// Represents `UITapGestureRecognizer`.
   case tap
-  
+
   /// Represents `UIPinchGestureRecognizer`.
   case pinch
-  
+
   /// Represents `UIRotationGestureRecognizer`.
   case rotation
-  
+
   /// Represents `UISwipeGestureRecognizer`.
   case swipe
-  
+
   /// Represents `UIPanGestureRecognizer`.
   case pan
-  
+
   /// Represents `UIScreenEdgePanGestureRecognizer`.
   case screenEdgePan
-  
+
   /// Represents `UILongPressGestureRecognizer`.
   case longPress
 }

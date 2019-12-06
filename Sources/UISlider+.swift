@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UISlider {
-  
   /// Associates a `target` object and `action` method with the control
   /// in case of `valueChanged` control event.
   func valueChanged(onTarget target: Any?, action: Selector) {

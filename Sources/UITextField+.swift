@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UITextField {
-  
   /// Associates a `target` object and `action` method with the control
   /// in case of `editingChanged` control event.
   func textChanged(onTarget target: Any?, action: Selector) {
